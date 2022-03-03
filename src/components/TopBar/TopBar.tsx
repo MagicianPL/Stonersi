@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.div<{transparent: boolean}>`
     width: 100%;
     height: 45px;
     padding: 10px 20px;
-    background: transparent;
+    background: ${(props: any) => props.transparent ? `transparent` : `rgba(152,186,79,0.3)`};
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
     font-weight: bold;
     position: fixed;
     z-index: 2;
+    transition: background 1s;
 
     ul {
         display: flex;
@@ -27,8 +28,33 @@ const StyledWrapper = styled.div`
 `;
 
 const TopBar = () => {
+
+    //for setting bg on scrolling
+    const [transparentTopBarBg, setTransparentTopBarBg] = useState(true);
+
+    //handling topBar backround on scroll
+    const handleTopBarBackground = () => {
+        if (document.body.getBoundingClientRect().top < -45) {
+            setTransparentTopBarBg(false);
+        };
+
+        if (!transparentTopBarBg) {
+            if (document.body.getBoundingClientRect().top > -45) {
+                setTransparentTopBarBg(true);
+            }
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleTopBarBackground);
+
+        return () => {
+            window.removeEventListener('scroll', handleTopBarBackground);
+        }
+    })
+
     return(
-        <StyledWrapper>
+        <StyledWrapper transparent={transparentTopBarBg}>
             <ul>
                 <li>Zaloguj</li>
                 <li>Rejestracja</li>
