@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div<{show: boolean}>`
     width: 100%;
-    height: ${({show}) => show? '20vh' : '0px'};
+    height: ${({show}) => show? '370px' : '0px'};
     transition: height 0.4s;
     position: relative;
 
@@ -22,11 +22,52 @@ const StyledWrapper = styled.div<{show: boolean}>`
     form {
         height: 100%;
         overflow-y: hidden;
-        padding: 25px 0;
+
+        & > div {
+            padding: 25px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, label {
+            cursor: pointer;
+        }
 
         input {
             width: 20px;
             height: 20px;
+            margin-right: 10px;
+        }
+
+        .signature {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            font-size: 18px;
+            padding: 5px 10px;
+            cursor: text;
+            margin: 0 auto;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+
+            span {
+                color: #224024;
+            }
+        }
+
+        textarea {
+            width: 90%;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 20px;
         }
     }
 `;

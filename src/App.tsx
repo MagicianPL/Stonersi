@@ -10,7 +10,7 @@ import AddPostForm from './components/AddPostForm/AddPostForm';
 
 function App() {
 
-  const [addPost, setAddPost] = useState(true);
+  const [addPost, setAddPost] = useState(false);
 
   const handleAddPostAppearing = () => {
     setAddPost(!addPost);
