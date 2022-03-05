@@ -4,13 +4,13 @@ import TopBar from './components/TopBar/TopBar';
 import Header from './components/Header/Header';
 import StyledMain from './components/StyledMain/StyledMain';
 import StyledButton from './components/StyledButton/StyledButton';
-import StyledWrapper from './components/AddPostForm/StyledWrapper';
+import AddPostForm from './components/AddPostForm/AddPostForm';
 
 
 
 function App() {
 
-  const [addPost, setAddPost] = useState(false);
+  const [addPost, setAddPost] = useState(true);
 
   const handleAddPostAppearing = () => {
     setAddPost(!addPost);
@@ -22,7 +22,7 @@ function App() {
     <Header />
     <StyledMain>
       <StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
-      <StyledWrapper show={addPost} />
+      <AddPostForm show={addPost} />
     </StyledMain>
     </>
   );
