@@ -23,6 +23,11 @@ const StyledWrapper = styled.div<{transparent: boolean}>`
         li {
             margin: 0 15px;
             cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #4aa150;
+            }
         }
     }
 `;

@@ -7,3 +7,11 @@
 body {
   min-height: 200vh;
 }
+
+@font-face {
+  font-family: "SmokingTequila";
+  src: local("SmokingTequila"),
+    url(./fonts/SmokingTequila.ttf) format("truetype");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
