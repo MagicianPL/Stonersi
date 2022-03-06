@@ -13,7 +13,7 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
                         : firstSentence === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę...'
                         : ""
     );
-    const [signature, setSignature] = useState("Anonim");
+    const [signature, setSignature] = useState("");
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.value);

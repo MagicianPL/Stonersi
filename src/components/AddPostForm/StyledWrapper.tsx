@@ -37,6 +37,7 @@ const StyledWrapper = styled.div<{show: boolean}>`
             width: 20px;
             height: 20px;
             margin-right: 10px;
+            accent-color: green;
         }
 
         .signature {
