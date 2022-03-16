@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import StyledMain from './components/StyledMain/StyledMain';
 import StyledButton from './components/StyledButton/StyledButton';
 import AddPostForm from './components/AddPostForm/AddPostForm';
-import PostsContainer from './components/PostsContainer/PostsContainer';
+import PostsContainer from './views/PostsContainer/PostsContainer';
 
 
 

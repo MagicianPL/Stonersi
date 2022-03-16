@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import StyledContainer from './StyledContainer';
-import Post from '../Post/Post';
+import Post from '../../components/Post/Post';
 import { Rings } from 'react-loader-spinner';
 
 
