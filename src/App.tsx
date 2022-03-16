@@ -7,6 +7,7 @@ import StyledButton from './components/StyledButton/StyledButton';
 import AddPostForm from './components/AddPostForm/AddPostForm';
 import PostsContainer from './views/PostsContainer/PostsContainer';
 import RegisterForm from './views/RegisterForm/RegisterForm';
+import LoginForm from './views/LoginForm/LoginForm';
 
 
 
@@ -25,8 +26,9 @@ function App() {
     <StyledMain>
       {/*<StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
       <AddPostForm show={addPost} />
-  <PostsContainer />*/}
-      <RegisterForm />
+  <PostsContainer />
+      <RegisterForm />*/}
+      <LoginForm />
     </StyledMain>
     </>
   );

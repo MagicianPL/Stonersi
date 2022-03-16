@@ -5,17 +5,15 @@ import StyledButton from '../../components/StyledButton/StyledButton';
 
 
 
-const RegisterForm = () => {
+const LoginForm = () => {
     return(
         <StyledForm>
-            <h1>Załóż konto</h1>
-            <Input id="login" label="Twój login" />
+            <h1>Zaloguj się</h1>
             <Input id="email" label="Adres e-mail" type="email" />
             <Input id="password" label="Twoje hasło" type="password" />
-            <Input id="repeatedPassword" label="Powtórz hasło" type="password" />
-            <StyledButton center>Zarejestruj</StyledButton>
+            <StyledButton center>Zaloguj</StyledButton>
         </StyledForm>
     );
 };
 
-export default RegisterForm;
+export default LoginForm;
