@@ -1,0 +1,39 @@
+{
+    "Posts": [
+        {
+            "id": "1",
+            "post": "Kiedy ostatnio paliłem/am papierosa... To wydawało mi się, że we wszystkich piosenkach jest kontekst papierosów :D",
+            "author": "Someone",
+            "joints": "5",
+            "comments": []
+        },
+        {
+            "id": "2",
+            "post": "Kiedy ostatnio jadłem czekoladę... ",
+            "author": "Someone",
+            "joints": "3",
+            "comments": []
+        },
+        {
+            "id": "3",
+            "post": "Lorem ipsum...",
+            "author": "Someone",
+            "joints": "0",
+            "comments": []
+        },
+        {
+            "id": "4",
+            "post": "Lorem ipsum...",
+            "author": "Someone",
+            "joints": "2",
+            "comments": []
+        },
+        {
+            "id": "5",
+            "post": "Lorem ipsum...",
+            "author": "Someone",
+            "joints": "3",
+            "comments": []
+        }
+    ]
+}

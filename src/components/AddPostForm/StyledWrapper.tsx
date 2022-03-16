@@ -5,6 +5,7 @@ const StyledWrapper = styled.div<{show: boolean}>`
     height: ${({show}) => show? '370px' : '0px'};
     transition: height 0.4s;
     position: relative;
+    margin-bottom: 25px;
 
     &::before {
         content: "";
