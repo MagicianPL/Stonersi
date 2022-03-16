@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import StyledMain from './components/StyledMain/StyledMain';
 import StyledButton from './components/StyledButton/StyledButton';
 import AddPostForm from './components/AddPostForm/AddPostForm';
+import PostsContainer from './components/PostsContainer/PostsContainer';
 
 
 
@@ -23,6 +24,7 @@ function App() {
     <StyledMain>
       <StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
       <AddPostForm show={addPost} />
+      <PostsContainer />
     </StyledMain>
     </>
   );

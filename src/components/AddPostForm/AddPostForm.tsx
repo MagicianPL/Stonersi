@@ -27,7 +27,6 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
 
     const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTextAreaValue(e.target.value);
-        console.log(textAreaValue);
     }
 
     const handleSignatureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
