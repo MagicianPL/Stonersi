@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import StyledContainer from './StyledContainer';
 import Post from '../Post/Post';
+import { Rings } from 'react-loader-spinner';
 
 
 
@@ -17,7 +18,10 @@ const PostsContainer = () => {
     return(
         <StyledContainer>
             {
-                allPosts.length && allPosts.map((post: any) => <Post key={post.id} joints={post.joints} post={post.post} comments={post.comments} author={post.author} />)
+                allPosts.length < 1 && <div className="loader"><Rings ariaLabel="loading-indicator" /></div>
+            }
+            {
+                allPosts.length > 0 && allPosts.map((post: any) => <Post key={post.id} joints={post.joints} post={post.post} comments={post.comments} author={post.author} />)
             }
         </StyledContainer>
     );
