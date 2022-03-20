@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StyledForm from './StyledForm';
 import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
+import Modal from '../../components/Modal/Modal';
 
 
 
@@ -27,6 +28,7 @@ const RegisterForm = () => {
     };
 
     return(
+        <>
         <StyledForm onSubmit={handleFormSubmit}>
             <h1>Załóż konto</h1>
             <Input id="login" label="Twój login" name="login" value={inputValues.login} onChange={handleInputChange} />
@@ -35,6 +37,8 @@ const RegisterForm = () => {
             <Input id="repeatedPassword" label="Powtórz hasło" type="password" name="repeatedPassword" value={inputValues.repeatedPassword} onChange={handleInputChange} />
             <StyledButton center>Zarejestruj</StyledButton>
         </StyledForm>
+        <Modal />
+        </>
     );
 };
 
