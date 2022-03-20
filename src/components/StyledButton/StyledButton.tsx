@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button<{center?: boolean}>`
+interface IProps {
+  center?: boolean
+}
+
+const StyledButton = styled.button<IProps>`
   border: none;
   font-size: 22px;
   margin: 20px auto 20px ${({center}) => center ? 'auto' : '0'};

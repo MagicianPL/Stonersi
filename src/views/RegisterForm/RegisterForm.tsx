@@ -22,9 +22,45 @@ const RegisterForm = () => {
         });
     };
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setShowModal(true);
+        const res = await fetch('http://localhost:5000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inputValues)
+        });
+
+        const data = await res.json();
+        
+        //If response is not ok and we've got an error message from the server
+        if (!res.ok) {
+            setModalErrorMessage(data.message);
+            return;
+        } else if (res.ok) {
+            setModalContent("Twoje konto zostało poprawnie zarejestrowane");
+        }
     };
+
+    //Clearing inputs and modal content when user closes modal
+    const clearData = () => {
+        setModalContent("");
+        setModalErrorMessage("");
+        setInputValues(initialInputValues);
+    };
+
+    //Props for Modal
+    //If modalContent is falsy - modal is hidden
+    //If errorMessage is not falsy - modal is red
+    const [showModal, setShowModal] = useState(false);
+    const [modalContent, setModalContent] = useState("");
+    const [modalErrorMessage, setModalErrorMessage] = useState("");
+    const hideModal = () => {
+        setShowModal(false);
+        clearData();
+    }
 
     return(
         <>
@@ -36,7 +72,7 @@ const RegisterForm = () => {
             <Input id="repeatedPassword" label="Powtórz hasło" type="password" name="repeatedPassword" value={inputValues.repeatedPassword} onChange={handleInputChange} />
             <StyledButton center>Zarejestruj</StyledButton>
         </StyledForm>
-        <Modal content="" showModal={true} error="error"/>
+        <Modal content={modalContent} showModal={showModal} error={modalErrorMessage} hideModal={hideModal} />
         </>
     );
 };

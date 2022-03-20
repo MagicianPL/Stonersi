@@ -68,16 +68,17 @@ interface IProps {
     content: string
     showModal: boolean
     error?: string
+    hideModal: () => void
 }
 
-const Modal: React.FC<IProps> = ({content, showModal, error}) => {
+const Modal: React.FC<IProps> = ({content, showModal, hideModal, error}) => {
     return(
         <StyledModalWrapper className={showModal ? undefined : 'hide'} error={error}>
             <div>
-                {content ?
+                {content || error ?
                 <>
-                <p>{content}</p>
-                <StyledButton center>OK</StyledButton>
+                <p>{content ? content : error}</p>
+                <StyledButton center onClick={hideModal}>OK</StyledButton>
                 </>
                 :
                 <Oval color="green" />
