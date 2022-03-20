@@ -22,6 +22,7 @@ const RegisterForm = () => {
         });
     };
 
+    /*It shows Modal with loading spinner, sends post request, then shows error or good message on Modal*/
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setShowModal(true);
