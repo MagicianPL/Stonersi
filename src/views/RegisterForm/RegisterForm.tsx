@@ -37,7 +37,7 @@ const RegisterForm = () => {
             <Input id="repeatedPassword" label="Powtórz hasło" type="password" name="repeatedPassword" value={inputValues.repeatedPassword} onChange={handleInputChange} />
             <StyledButton center>Zarejestruj</StyledButton>
         </StyledForm>
-        <Modal />
+        <Modal content="" showModal={true} error="error"/>
         </>
     );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import StyledButton from '../StyledButton/StyledButton';
 import Marijuana from '../../images/marijuana.png';
 
-const StyledModalWrapper = styled.div`
+const StyledModalWrapper = styled.div<{error?: string}>`
     position: fixed;
     top: 0;
     left: 0;
@@ -22,8 +22,8 @@ const StyledModalWrapper = styled.div`
         padding: 20px;
         background: white;
         border-radius: 5px;
-        border-top: 30px solid green;
-        border-bottom: 30px solid green;
+        border-top: 30px solid ${({error}) => error ? 'red' : 'green'};
+        border-bottom: 30px solid ${({error}) => error ? 'red' : 'green'};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -54,13 +54,24 @@ const StyledModalWrapper = styled.div`
             font-weight: bold;
             font-size: 18px;
             text-align: center;
+            color: ${({error}) => error ? 'red' : 'black'};
         }
+    }
+
+    &.hide {
+        display: none;
     }
 `;
 
-const Modal = () => {
+interface IProps {
+    content: string
+    showModal: boolean
+    error?: string
+}
+
+const Modal: React.FC<IProps> = ({content, showModal, error}) => {
     return(
-        <StyledModalWrapper>
+        <StyledModalWrapper className={showModal ? undefined : 'hide'} error={error}>
             <div>
                 <p>To jest jakaś przykładowa wiadomość</p>
                 <StyledButton center>OK</StyledButton>
