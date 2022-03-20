@@ -22,8 +22,12 @@ const RegisterForm = () => {
         });
     };
 
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
     return(
-        <StyledForm>
+        <StyledForm onSubmit={handleFormSubmit}>
             <h1>Załóż konto</h1>
             <Input id="login" label="Twój login" name="login" value={inputValues.login} onChange={handleInputChange} />
             <Input id="email" label="Adres e-mail" type="email" name="email" value={inputValues.email} onChange={handleInputChange} />
