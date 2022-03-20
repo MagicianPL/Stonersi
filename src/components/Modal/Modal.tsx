@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import StyledButton from '../StyledButton/StyledButton';
+import Marijuana from '../../images/marijuana.png';
 
 const StyledModalWrapper = styled.div`
     position: fixed;
@@ -11,15 +13,48 @@ const StyledModalWrapper = styled.div`
     z-index: 10;
 
     & > div {
-        position: absolute;
+        position: relative;
         top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 0 auto;
         width: 70%;
+        max-width: 1000px;
         min-height: 320px;
         padding: 20px;
         background: white;
         border-radius: 5px;
+        border-top: 30px solid green;
+        border-bottom: 30px solid green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        * {
+            z-index: 2;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 80%;
+            background-image: url(${Marijuana});
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+            opacity: 0.08;
+        }
+
+        p {
+            margin-bottom: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
     }
 `;
 
@@ -27,7 +62,8 @@ const Modal = () => {
     return(
         <StyledModalWrapper>
             <div>
-
+                <p>To jest jakaś przykładowa wiadomość</p>
+                <StyledButton center>OK</StyledButton>
             </div>
         </StyledModalWrapper>
     );
