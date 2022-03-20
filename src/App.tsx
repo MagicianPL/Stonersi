@@ -26,9 +26,9 @@ function App() {
     <StyledMain>
       {/*<StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
       <AddPostForm show={addPost} />
-  <PostsContainer />
-      <RegisterForm />*/}
-      <LoginForm />
+  <PostsContainer />*/}
+      <RegisterForm />
+      {/*<LoginForm />*/}
     </StyledMain>
     </>
   );
