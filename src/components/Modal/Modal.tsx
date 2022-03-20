@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StyledButton from '../StyledButton/StyledButton';
 import Marijuana from '../../images/marijuana.png';
+import { Oval } from  'react-loader-spinner';
 
 const StyledModalWrapper = styled.div<{error?: string}>`
     position: fixed;
@@ -73,8 +74,14 @@ const Modal: React.FC<IProps> = ({content, showModal, error}) => {
     return(
         <StyledModalWrapper className={showModal ? undefined : 'hide'} error={error}>
             <div>
-                <p>To jest jakaś przykładowa wiadomość</p>
+                {content ?
+                <>
+                <p>{content}</p>
                 <StyledButton center>OK</StyledButton>
+                </>
+                :
+                <Oval color="green" />
+                }
             </div>
         </StyledModalWrapper>
     );

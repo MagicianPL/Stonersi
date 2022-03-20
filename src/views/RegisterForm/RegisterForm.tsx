@@ -5,7 +5,6 @@ import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
 
 
-
 const RegisterForm = () => {
     const initialInputValues = {
         login: "",
