@@ -15,6 +15,7 @@ function App() {
 
   const [addPost, setAddPost] = useState(false);
 
+  //For appearing section for adding new post
   const handleAddPostAppearing = () => {
     setAddPost(!addPost);
   };
@@ -24,11 +25,11 @@ function App() {
     <TopBar />
     <Header />
     <StyledMain>
-      {/*<StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
+      <StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
       <AddPostForm show={addPost} />
-  <PostsContainer />*/}
+      <PostsContainer />
       <RegisterForm />
-      {/*<LoginForm />*/}
+      <LoginForm />
     </StyledMain>
     </>
   );

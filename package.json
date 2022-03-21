@@ -17,6 +17,7 @@
     "react-icons": "^4.3.1",
     "react-loader-spinner": "^6.0.0-0",
     "react-redux": "^7.2.6",
+    "react-router": "^6.2.2",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "styled-components": "^5.3.3",
