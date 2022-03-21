@@ -33,6 +33,10 @@ const StyledWrapper = styled.ul`
                 z-index: -1;
                 opacity: 0;
                 transition: opacity 0.5s;
+
+                @media (max-width: 450px) {
+                    display: none;
+                }
             }
 
             &:hover {
