@@ -11,6 +11,10 @@ const StyledHeader = styled.header`
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 500px) {
+        height: 200px;
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -28,6 +32,10 @@ const StyledHeader = styled.header`
         position: relative;
         top: 20px;
         cursor: pointer;
+
+        @media (max-width: 500px) {
+            font-size: 72px;
+        }
     }
 `;
 
