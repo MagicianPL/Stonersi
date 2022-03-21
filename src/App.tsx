@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import TopBar from './components/TopBar/TopBar';
 import Header from './components/Header/Header';
 import StyledMain from './components/StyledMain/StyledMain';
@@ -21,17 +26,25 @@ function App() {
   };
 
   return (
-    <>
+    <div className="App">
+    <Router>
     <TopBar />
     <Header />
     <StyledMain>
-      <StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
-      <AddPostForm show={addPost} />
-      <PostsContainer />
-      <RegisterForm />
-      <LoginForm />
+      <Routes>
+        <Route path="/" element={
+        <>
+        <StyledButton onClick={handleAddPostAppearing}>{!addPost ? 'Dodaj wpis' : 'Ukryj'}</StyledButton>
+        <AddPostForm show={addPost} />
+        <PostsContainer />
+        </>
+        } />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
     </StyledMain>
-    </>
+    </Router>
+    </div>
   );
 }
 
