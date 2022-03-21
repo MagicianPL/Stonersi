@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import StyledWrapper from './StyledWrapper';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
 
@@ -30,8 +31,8 @@ const TopBar = () => {
     return(
         <StyledWrapper transparent={transparentTopBarBg}>
             <ul>
-                <li>Zaloguj</li>
-                <li>Rejestracja</li>
+                <Link to="/login"><li>Zaloguj</li></Link>
+                <Link to="/register"><li>Rejestracja</li></Link>
             </ul>
         </StyledWrapper>
     )

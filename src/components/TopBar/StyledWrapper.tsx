@@ -33,6 +33,11 @@ const StyledWrapper = styled.div<{transparent: boolean}>`
             }
         }
     }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export default StyledWrapper;
