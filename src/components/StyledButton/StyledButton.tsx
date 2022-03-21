@@ -12,6 +12,11 @@ const StyledButton = styled.button<IProps>`
   cursor: pointer;
   font-weight: bold;
   color: #4aa150;
+  transition: all 0.5s;
+
+  &:hover {
+    letter-spacing: 1px;
+  }
 `;
 
 export default StyledButton;
