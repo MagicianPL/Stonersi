@@ -16,8 +16,12 @@ const StyledWrapper = styled.div<{transparent: boolean}>`
 
     ul {
         display: flex;
+        justify-content: flex-end;
         list-style: none;
         color: #346137;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
 
         li {
             margin: 0 15px;

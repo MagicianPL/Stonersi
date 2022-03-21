@@ -5,9 +5,10 @@ const StyledWrapper = styled.ul`
         list-style: none;
         display: flex;
         width: 100%;
+        max-width: 1200px;
+        margin: auto auto 0 auto;
         align-items: center;
         justify-content: space-around;
-        margin-top: auto;
         font-size: 22px;
         text-transform: uppercase;
         color: #224024;
