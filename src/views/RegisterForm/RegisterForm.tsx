@@ -46,10 +46,13 @@ const RegisterForm = () => {
     };
 
     //Clearing inputs and modal content when user closes modal
-    const clearData = () => {
+    const clearData = (error: string) => {
         setModalContent("");
+        //If user is registered correctly there is no error message, so clear input values
+        if (!error) {
+            setInputValues(initialInputValues);
+        }
         setModalErrorMessage("");
-        setInputValues(initialInputValues);
     };
 
     //Props for Modal
@@ -60,7 +63,7 @@ const RegisterForm = () => {
     const [modalErrorMessage, setModalErrorMessage] = useState("");
     const hideModal = () => {
         setShowModal(false);
-        clearData();
+        clearData(modalErrorMessage);
     }
 
     return(
