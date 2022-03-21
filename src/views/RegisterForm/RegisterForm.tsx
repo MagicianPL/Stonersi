@@ -72,7 +72,7 @@ const RegisterForm = () => {
             <h1>Załóż konto</h1>
             <Input id="login" label="Twój login" name="login" value={inputValues.login} onChange={handleInputChange} />
             <Input id="email" label="Adres e-mail" type="email" name="email" value={inputValues.email} onChange={handleInputChange} />
-            <Input id="password" label="Twoje hasło" type="password" name="password" value={inputValues.password} onChange={handleInputChange} />
+            <Input id="password" label="Twoje hasło" type="password" name="password" value={inputValues.password} placeholder="Minimum 6 znaków" onChange={handleInputChange} />
             <Input id="repeatedPassword" label="Powtórz hasło" type="password" name="repeatedPassword" value={inputValues.repeatedPassword} onChange={handleInputChange} />
             <StyledButton center>Zarejestruj</StyledButton>
         </StyledForm>
