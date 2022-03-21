@@ -67,6 +67,15 @@ const StyledPost = styled.div`
         font-size: 20px;
         max-width: 80%;
         margin: 20px auto 30px auto;
+
+        @media (max-width: 500px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        @media (max-width: 700px) {
+            max-width: 100%;
+        }
     }
 
     .comments {

@@ -37,6 +37,11 @@ const StyledHeader = styled.header`
             font-size: 72px;
         }
     }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export default StyledHeader;
