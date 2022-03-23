@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import StyledForm from './StyledForm';
 import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
@@ -22,6 +23,7 @@ const RegisterForm = () => {
         });
     };
 
+    const navigate = useNavigate();
     /*It shows Modal with loading spinner, sends post request, then shows error or good message on Modal*/
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -41,7 +43,12 @@ const RegisterForm = () => {
             setModalErrorMessage(data.message);
             return;
         } else if (res.ok) {
-            setModalContent("Twoje konto zostało poprawnie zarejestrowane");
+            setModalContent("Twoje konto zostało poprawnie zarejestrowane - nastąpi przekierowanie na stronę logowania");
+            //Redirect to login page after 4s
+            setTimeout(() => {
+                navigate("/login");
+                setShowModal(false);
+            }, 4000);
         }
     };
 
