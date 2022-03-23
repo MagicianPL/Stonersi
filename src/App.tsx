@@ -13,6 +13,7 @@ import AddPostForm from './components/AddPostForm/AddPostForm';
 import PostsContainer from './views/PostsContainer/PostsContainer';
 import RegisterForm from './views/RegisterForm/RegisterForm';
 import LoginForm from './views/LoginForm/LoginForm';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App">
     <Router>
+    <ScrollToTop />
     <TopBar />
     <Header />
     <StyledMain>
