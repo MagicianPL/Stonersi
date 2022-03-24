@@ -67,9 +67,9 @@ const StyledModalWrapper = styled.div<{error?: string}>`
 `;
 
 interface IProps {
-    content: string
+    content?: string
     showModal: boolean
-    error?: string
+    error: string
 }
 
 const Modal: React.FC<IProps> = ({content, showModal, error}) => {

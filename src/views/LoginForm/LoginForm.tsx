@@ -4,7 +4,7 @@ import StyledForm from './StyledForm';
 import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
-import { showModal } from '../../state/actions/modalActions';
+import { hideModal, setModalError, showModal } from '../../state/actions/modalActions';
 
 
 const LoginForm = () => {
@@ -24,16 +24,34 @@ const LoginForm = () => {
 
     /**** MODAL  ****/
     //Props for Modal
-    //If modalContent is falsy - modal is hidden
-    //If errorMessage is not falsy - modal is red
+    //If visibleModal is falsy - modal is hidden
+    //If modalError is not falsy - modal is red
     /****************************/
     const  visibleModal = useSelector((state: any) => state.modalReducer.showModal);
+    const modalError = useSelector((state: any) => state.modalReducer.error);
 
     const dispatch = useDispatch();
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(visibleModal);
         dispatch(showModal());
+        const res = await fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inputValues)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            dispatch(setModalError(data.message));
+        } else if (res.ok) {
+            //TO DO correctly login funcionality
+            dispatch(hideModal());
+            setInputValues(initialValues);
+            console.log("correctly login");
+        }
     }
     return(
         <>
@@ -43,7 +61,7 @@ const LoginForm = () => {
             <Input id="password" label="Twoje hasło" type="password" name="password" value={inputValues.password} onChange={handleInputChange} />
             <StyledButton center>Zaloguj</StyledButton>
         </StyledForm>
-        <Modal showModal={visibleModal} content="xxx" />
+        <Modal showModal={visibleModal} error={modalError} />
         </>
     );
 };
