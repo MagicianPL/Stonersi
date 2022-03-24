@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import StyledButton from '../StyledButton/StyledButton';
 import Marijuana from '../../images/marijuana.png';
 import { Oval } from  'react-loader-spinner';
+import { useDispatch } from 'react-redux';
+import { hideModal } from '../../state/actions/modalActions';
 
 const StyledModalWrapper = styled.div<{error?: string}>`
     position: fixed;
@@ -68,17 +70,22 @@ interface IProps {
     content: string
     showModal: boolean
     error?: string
-    hideModal: () => void
 }
 
-const Modal: React.FC<IProps> = ({content, showModal, hideModal, error}) => {
+const Modal: React.FC<IProps> = ({content, showModal, error}) => {
+    
+    const dispatch = useDispatch();
+    const hidingModal = () => {
+        dispatch(hideModal());
+    }
+
     return(
         <StyledModalWrapper className={showModal ? undefined : 'hide'} error={error}>
             <div>
                 {content || error ?
                 <>
                 <p>{content ? content : error}</p>
-                <StyledButton center onClick={hideModal}>OK</StyledButton>
+                <StyledButton center onClick={hidingModal}>OK</StyledButton>
                 </>
                 :
                 <Oval color="green" />

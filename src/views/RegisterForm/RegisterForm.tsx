@@ -4,6 +4,8 @@ import StyledForm from './StyledForm';
 import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { hideModal, setModalError, setModalMessage, showModal } from '../../state/actions/modalActions';
 
 
 const RegisterForm = () => {
@@ -23,11 +25,18 @@ const RegisterForm = () => {
         });
     };
 
+    //Visibility of modal, message, errorMessage
+    const visibleModal = useSelector((state: any) => state.modalReducer.showModal);
+    const modalContent = useSelector((state: any) => state.modalReducer.message);
+    const modalError = useSelector((state: any) => state.modalReducer.error);
+
+
     const navigate = useNavigate();
-    /*It shows Modal with loading spinner, sends post request, then shows error or good message on Modal*/
+    const dispatch = useDispatch();
+    /*It shows Modal with loading spinner, sends post request, then shows error or good message on Modal, next - redirect to login page*/
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setShowModal(true);
+        dispatch(showModal());
         const res = await fetch('http://localhost:5000/api/register', {
             method: 'POST',
             headers: {
@@ -40,39 +49,19 @@ const RegisterForm = () => {
         
         //If response is not ok and we've got an error message from the server
         if (!res.ok) {
-            setModalErrorMessage(data.message);
+            dispatch(setModalError(data.message));
             return;
         } else if (res.ok) {
-            setModalContent("Twoje konto zostało poprawnie zarejestrowane - nastąpi przekierowanie na stronę logowania");
-            //Redirect to login page after 4s
+            dispatch(setModalMessage("Twoje konto zostało poprawnie zarejestrowane - nastąpi przekierowanie na stronę logowania"));
+            setInputValues(initialInputValues);
+            //Redirect to login page after 3s
             setTimeout(() => {
                 navigate("/login");
-                setShowModal(false);
-            }, 4000);
+                dispatch(hideModal());
+            }, 3000);
         }
     };
-
-    //Clearing inputs and modal content when user closes modal
-    const clearData = (error: string) => {
-        setModalContent("");
-        //If user is registered correctly there is no error message, so clear input values
-        if (!error) {
-            setInputValues(initialInputValues);
-        }
-        setModalErrorMessage("");
-    };
-
-    //Props for Modal
-    //If modalContent is falsy - modal is hidden
-    //If errorMessage is not falsy - modal is red
-    const [showModal, setShowModal] = useState(false);
-    const [modalContent, setModalContent] = useState("");
-    const [modalErrorMessage, setModalErrorMessage] = useState("");
-    const hideModal = () => {
-        setShowModal(false);
-        clearData(modalErrorMessage);
-    }
-
+    
     return(
         <>
         <StyledForm onSubmit={handleFormSubmit}>
@@ -83,7 +72,7 @@ const RegisterForm = () => {
             <Input id="repeatedPassword" label="Powtórz hasło" type="password" name="repeatedPassword" value={inputValues.repeatedPassword} onChange={handleInputChange} />
             <StyledButton center>Zarejestruj</StyledButton>
         </StyledForm>
-        <Modal content={modalContent} showModal={showModal} error={modalErrorMessage} hideModal={hideModal} />
+        <Modal content={modalContent} showModal={visibleModal} error={modalError} />
         </>
     );
 };

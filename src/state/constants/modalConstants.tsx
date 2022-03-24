@@ -1,0 +1,4 @@
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
+export const SET_MODAL_MESSAGE = 'SET_MODAL_MESSAGE';
+export const SET_MODAL_ERROR = 'SET_MODAL_ERROR';

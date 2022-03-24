@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import StyledForm from './StyledForm';
 import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
+import { showModal } from '../../state/actions/modalActions';
 
 
 const LoginForm = () => {
@@ -24,19 +26,14 @@ const LoginForm = () => {
     //Props for Modal
     //If modalContent is falsy - modal is hidden
     //If errorMessage is not falsy - modal is red
-    const [showModal, setShowModal] = useState(false);
-    const [modalErrorMessage, setModalErrorMessage] = useState("");
-
-    const hideModal = () => {
-        setShowModal(false);
-        setModalErrorMessage("");
-    }
     /****************************/
+    const  visibleModal = useSelector((state: any) => state.modalReducer.showModal);
 
+    const dispatch = useDispatch();
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(inputValues);
-        setShowModal(true);
+        console.log(visibleModal);
+        dispatch(showModal());
     }
     return(
         <>
@@ -46,7 +43,7 @@ const LoginForm = () => {
             <Input id="password" label="Twoje hasło" type="password" name="password" value={inputValues.password} onChange={handleInputChange} />
             <StyledButton center>Zaloguj</StyledButton>
         </StyledForm>
-        <Modal content="" showModal={showModal} hideModal={hideModal} />
+        <Modal showModal={visibleModal} content="xxx" />
         </>
     );
 };
