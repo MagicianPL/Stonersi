@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getJoints } from '../../state/actions/jointsActions';
 
 const TopBar = () => {
 
@@ -29,8 +30,20 @@ const TopBar = () => {
         }
     });
 
+
     //If user is logged user is not falsy
     const { user } = useSelector((state: any) => state.userReducer);
+    //Available number of joints to light
+    const { joints } = useSelector((state: any) => state.availableJointsReducer);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (user) {
+            const id = user._id;
+            dispatch(getJoints(id));
+        };
+        //If user is true - so user is logged, it fetches data about available joint to light
+    }, [user, dispatch]);
 
     return(
         <StyledWrapper transparent={transparentTopBarBg}>
@@ -45,11 +58,11 @@ const TopBar = () => {
                 <Link to="/register"><li>Rejestracja</li></Link>
                 </>}
             </ul>
-            {user ?
-                user.joints === 0 ?
+            {user && joints ?
+                joints === 0 ?
                 <p>Pozostało Ci 0 jointów do przypalenia</p>
                 :
-                <p>Pozostały Ci 3 jointy do przypalenia</p>
+                <p>{`Pozostały Ci ${joints} jointy do przypalenia`}</p>
                 : null}
         </StyledWrapper>
     )
