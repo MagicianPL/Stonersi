@@ -46,6 +46,12 @@ const StyledWrapper = styled.div<{transparent: boolean}>`
         text-align: right;
         padding-right: 15px;
         text-shadow: -2px 0px 2px rgba(52,97,55,0.60);
+
+        @media (max-width: 450px) {
+            font-size: 16px;
+            padding: 0;
+            text-align: center;
+        }
     }
 `;
 

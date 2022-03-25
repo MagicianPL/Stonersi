@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
     justify-content: center;
 
     @media (max-width: 500px) {
-        height: 200px;
+        height: 226px;
     }
 
     &::before {
@@ -32,6 +32,10 @@ const StyledHeader = styled.header`
         position: relative;
         top: 20px;
         cursor: pointer;
+
+        @media (max-width: 1070px) {
+            top: 50px;
+        }
 
         @media (max-width: 500px) {
             font-size: 72px;
