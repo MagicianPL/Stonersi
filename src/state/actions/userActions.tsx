@@ -1,3 +1,4 @@
+import { LOGIN_USER_SUCCESS } from "../constants/userConstants";
 import { setModalError, setModalMessage, showModal } from "./modalActions";
 
 export const registerUser = async (inputValues = {}) => {
@@ -17,3 +18,10 @@ export const registerUser = async (inputValues = {}) => {
         setModalMessage("Konto zostało zarejestrowane - za chwilę nastąpi przekierowanie na stronę logowania");
     }
 };
+
+export const loginUser = (user: any) => {
+    return {
+        type: LOGIN_USER_SUCCESS,
+        payload: user
+    }
+}

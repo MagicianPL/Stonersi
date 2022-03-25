@@ -5,6 +5,7 @@ import Input from '../../components/Input/Input';
 import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
 import { hideModal, setModalError, showModal } from '../../state/actions/modalActions';
+import { loginUser } from '../../state/actions/userActions';
 
 
 const LoginForm = () => {
@@ -50,6 +51,7 @@ const LoginForm = () => {
             //TO DO correctly login funcionality
             dispatch(hideModal());
             setInputValues(initialValues);
+            dispatch(loginUser(data)) //data is logged user object
             console.log("correctly login");
         }
     }
