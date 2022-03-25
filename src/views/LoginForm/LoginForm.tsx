@@ -6,6 +6,7 @@ import StyledButton from '../../components/StyledButton/StyledButton';
 import Modal from '../../components/Modal/Modal';
 import { hideModal, setModalError, showModal } from '../../state/actions/modalActions';
 import { loginUser } from '../../state/actions/userActions';
+import { useNavigate } from 'react-router';
 
 
 const LoginForm = () => {
@@ -32,6 +33,7 @@ const LoginForm = () => {
     const modalError = useSelector((state: any) => state.modalReducer.error);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(showModal());
@@ -52,7 +54,7 @@ const LoginForm = () => {
             dispatch(hideModal());
             setInputValues(initialValues);
             dispatch(loginUser(data)) //data is logged user object
-            console.log("correctly login");
+            navigate("/");
         }
     }
     return(
