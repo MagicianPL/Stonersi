@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { LOGIN_USER_SUCCESS, REGISTER_USER_FAILED, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constants/userConstants"
+import { LOGIN_USER_SUCCESS, LOGOUT_USER, REGISTER_USER_FAILED, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constants/userConstants"
 
 const reducer = (state = {}, action: AnyAction) => {
     switch (action.type) {
@@ -20,7 +20,9 @@ const reducer = (state = {}, action: AnyAction) => {
                 return {
                     ...state,
                     user: action.payload
-                }
+                };
+            case LOGOUT_USER:
+                return {};
         default:
             return state;
     }

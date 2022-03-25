@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getJoints } from '../../state/actions/jointsActions';
+import { logoutUser } from '../../state/actions/userActions';
 
 const TopBar = () => {
 
@@ -45,13 +47,19 @@ const TopBar = () => {
         //If user is true - so user is logged, it fetches data about available joint to light
     }, [user, dispatch]);
 
+    const navigate = useNavigate();
+    const logout = () => {
+        dispatch(logoutUser());
+        navigate("/");
+    };
+
     return(
         <StyledWrapper transparent={transparentTopBarBg}>
             <ul>
                 {user ?
                 <>
                 <li>Witaj {user.login}</li>
-                <li>Wyloguj</li>
+                <li onClick={logout}>Wyloguj</li>
                 </> :
                 <>
                 <Link to="/login"><li>Zaloguj</li></Link>

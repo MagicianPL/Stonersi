@@ -1,4 +1,4 @@
-import { LOGIN_USER_SUCCESS } from "../constants/userConstants";
+import { LOGIN_USER_SUCCESS, LOGOUT_USER } from "../constants/userConstants";
 import { setModalError, setModalMessage, showModal } from "./modalActions";
 
 export const registerUser = async (inputValues = {}) => {
@@ -23,5 +23,11 @@ export const loginUser = (user: any) => {
     return {
         type: LOGIN_USER_SUCCESS,
         payload: user
+    }
+}
+
+export const logoutUser = () => {
+    return {
+        type: LOGOUT_USER
     }
 }
