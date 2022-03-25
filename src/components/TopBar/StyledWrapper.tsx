@@ -2,23 +2,23 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div<{transparent: boolean}>`
     width: 100%;
-    height: 45px;
     padding: 10px 20px;
     background: ${(props: any) => props.transparent ? `transparent` : `rgba(152,186,79,0.3)`};
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     font-size: 18px;
     font-weight: bold;
     position: fixed;
     z-index: 2;
     transition: background 1s;
+    color: #346137;
 
     ul {
         display: flex;
         justify-content: flex-end;
         list-style: none;
-        color: #346137;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
@@ -37,6 +37,15 @@ const StyledWrapper = styled.div<{transparent: boolean}>`
     a {
         text-decoration: none;
         color: inherit;
+    }
+
+    & > p {
+        width: 100%;
+        max-width: 1200px;
+        margin: 8px auto 0 auto;
+        text-align: right;
+        padding-right: 15px;
+        text-shadow: -2px 0px 2px rgba(52,97,55,0.60);
     }
 `;
 

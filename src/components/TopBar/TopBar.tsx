@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const TopBar = () => {
 
@@ -26,14 +27,30 @@ const TopBar = () => {
         return () => {
             window.removeEventListener('scroll', handleTopBarBackground);
         }
-    })
+    });
+
+    //If user is logged user is not falsy
+    const { user } = useSelector((state: any) => state.userReducer);
 
     return(
         <StyledWrapper transparent={transparentTopBarBg}>
             <ul>
+                {user ?
+                <>
+                <li>Witaj {user.login}</li>
+                <li>Wyloguj</li>
+                </> :
+                <>
                 <Link to="/login"><li>Zaloguj</li></Link>
                 <Link to="/register"><li>Rejestracja</li></Link>
+                </>}
             </ul>
+            {user ?
+                user.joints === 0 ?
+                <p>Pozostało Ci 0 jointów do przypalenia</p>
+                :
+                <p>Pozostały Ci 3 jointy do przypalenia</p>
+                : null}
         </StyledWrapper>
     )
 };
