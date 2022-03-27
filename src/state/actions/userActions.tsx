@@ -3,7 +3,7 @@ import { setModalError, setModalMessage, showModal } from "./modalActions";
 
 export const registerUser = async (inputValues = {}) => {
     showModal();
-    const res = await fetch('http://localhost:5000/api/register', {
+    const res = await fetch(`${process.env.REACT_APP_API}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

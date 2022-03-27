@@ -10,9 +10,9 @@ const PostsContainer = () => {
     const [allPosts, setAllPosts] = useState([]);
 
     useEffect(() => {
-        fetch("data.json")
+        fetch(`${process.env.REACT_APP_API}/posts`)
         .then(res => res.json())
-        .then(data => setAllPosts(data.Posts));
+        .then(data => setAllPosts(data.posts));
     }, []);
 
     return(
@@ -21,7 +21,7 @@ const PostsContainer = () => {
                 allPosts.length < 1 && <div className="loader"><Rings ariaLabel="loading-indicator" /></div>
             }
             {
-                allPosts.length > 0 && allPosts.map((post: any) => <Post key={post.id} joints={post.joints} post={post.post} comments={post.comments} author={post.author} />)
+                allPosts.length > 0 && allPosts.map((post: any) => <Post key={post._id} joints={post.receivedJoints} post={post.content} comments={post.comments} author={post.createdBy} />)
             }
         </StyledContainer>
     );
