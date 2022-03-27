@@ -1,7 +1,11 @@
 import { AnyAction } from "redux";
 import { LOGIN_USER_SUCCESS, LOGOUT_USER, REGISTER_USER_FAILED, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constants/userConstants"
 
-const reducer = (state = {}, action: AnyAction) => {
+const initialState = {
+    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '{}') : null
+};
+
+const reducer = (state = initialState, action: AnyAction) => {
     switch (action.type) {
         case REGISTER_USER_REQUEST:
             return state;

@@ -20,6 +20,7 @@ export const registerUser = async (inputValues = {}) => {
 };
 
 export const loginUser = (user: any) => {
+    localStorage.setItem('user', JSON.stringify(user));
     return {
         type: LOGIN_USER_SUCCESS,
         payload: user
