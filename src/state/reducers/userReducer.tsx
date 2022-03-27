@@ -2,7 +2,7 @@ import { AnyAction } from "redux";
 import { LOGIN_USER_SUCCESS, LOGOUT_USER, REGISTER_USER_FAILED, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constants/userConstants"
 
 const initialState = {
-    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '{}') : null
+    user: localStorage.getItem('stonersiUser') ? JSON.parse(localStorage.getItem('stonersiUser') || '{}') : null
 };
 
 const reducer = (state = initialState, action: AnyAction) => {

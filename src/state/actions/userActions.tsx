@@ -20,7 +20,7 @@ export const registerUser = async (inputValues = {}) => {
 };
 
 export const loginUser = (user: any) => {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('stonersiUser', JSON.stringify(user));
     return {
         type: LOGIN_USER_SUCCESS,
         payload: user
@@ -28,6 +28,7 @@ export const loginUser = (user: any) => {
 }
 
 export const logoutUser = () => {
+    localStorage.removeItem('stonersiUser');
     return {
         type: LOGOUT_USER
     }
