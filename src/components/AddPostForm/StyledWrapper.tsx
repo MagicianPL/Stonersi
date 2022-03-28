@@ -7,6 +7,10 @@ const StyledWrapper = styled.div<{show: boolean}>`
     position: relative;
     margin-bottom: 25px;
 
+    @media (max-width: 390px) {
+        height: ${({show}) => show? '430px' : '0px'};
+    }
+
     &::before {
         content: "";
         position: absolute;
