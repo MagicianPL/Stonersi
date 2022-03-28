@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import StyledButton from '../StyledButton/StyledButton';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import createNewPost from '../../helpers/createNewPost';
+import Modal from '../Modal/Modal';
 
 interface IProps {
     show: boolean
@@ -19,7 +21,6 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
     const { user } = useSelector((state: any) => state.userReducer);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
         setFirstSentence(e.target.value);
         setTextAreaValue(
             e.target.value === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa...'
@@ -33,11 +34,27 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
         setTextAreaValue(e.target.value);
     }
 
+    const dispatch = useDispatch();
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const post: {
+            content: string,
+            createdBy?: string
+        } = {
+            content: textAreaValue
+        };
+        if (user) {
+            post.createdBy = user._id;
+        }
+
+        dispatch(createNewPost(post, user));
     };
 
+    //Props for Modal
+    const { showModal, error, message } = useSelector((state: any) => state.modalReducer);
+
     return(
+        <>
         <StyledWrapper show={show}>
             <form onSubmit={handleFormSubmit}>
                 <div>
@@ -59,6 +76,8 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
                 </div>
             </form>
         </StyledWrapper>
+        <Modal showModal={showModal} error={error} content={message} />
+        </>
     );
 };
 

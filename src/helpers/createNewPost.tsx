@@ -2,7 +2,7 @@ import { showModal, setModalError, setModalMessage } from '../state/actions/moda
 
 const createNewPost = (post: {}, user: any = undefined) => async (dispatch: any) => {
     //Show loading modal
-    showModal();
+    dispatch(showModal());
 
     const res =  await fetch(`${process.env.REACT_APP_API}/posts/newpost`, {
         method: "POST",
@@ -17,10 +17,10 @@ const createNewPost = (post: {}, user: any = undefined) => async (dispatch: any)
 
     if (!res.ok) {
         //Show error on modal
-        setModalError(data.message);
+        dispatch(setModalError(data.message));
     } else {
         //Show success message on modal
-        setModalMessage("Twój post czeka na zaakceptowanie przez moderatora");
+        dispatch(setModalMessage("Twój post czeka na zaakceptowanie przez moderatora"));
     };
 };
 
