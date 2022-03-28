@@ -29,12 +29,17 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
     };
 
     const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        //content for new post
         setTextAreaValue(e.target.value);
     }
 
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
     return(
         <StyledWrapper show={show}>
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <div>
                     <div className="input">
                     <input type="radio" id="joint" name="possibility" value="joint" checked={firstSentence === 'joint'} onChange={handleInputChange} />
