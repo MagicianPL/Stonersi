@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import StyledButton from '../StyledButton/StyledButton';
+import { useSelector } from 'react-redux';
 
 interface IProps {
     show: boolean
@@ -13,7 +14,9 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
                         : firstSentence === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę...'
                         : ""
     );
-    const [signature, setSignature] = useState("");
+
+    //User is true when he is logged
+    const { user } = useSelector((state: any) => state.userReducer);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.value);
@@ -28,10 +31,6 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
     const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTextAreaValue(e.target.value);
     }
-
-    const handleSignatureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSignature(e.target.value);
-    };
 
     return(
         <StyledWrapper show={show}>
@@ -50,7 +49,7 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
                     <label htmlFor="none">Brak</label>
                     </div>
                     <textarea value={textAreaValue} onChange={handleTextAreaChange}></textarea>
-                    <input className="signature" type="text" placeholder="Podpis" value={signature} onChange={handleSignatureChange} />
+                    <input className="signature" type="text" placeholder="Podpis" value={user ? user.login : "Anonim"} disabled />
                     <StyledButton center>WYŚLIJ</StyledButton>
                 </div>
             </form>
