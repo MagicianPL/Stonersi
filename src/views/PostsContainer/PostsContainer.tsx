@@ -12,7 +12,7 @@ const PostsContainer = () => {
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API}/posts`)
         .then(res => res.json())
-        .then(data => setAllPosts(data.posts));
+        .then(data => setAllPosts(data.posts.reverse()));
     }, []);
 
     return(
