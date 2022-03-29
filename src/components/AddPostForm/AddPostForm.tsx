@@ -48,6 +48,13 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
         }
 
         dispatch(createNewPost(post, user));
+        // If post was successed sent - clear that post on textarea
+        // So if error for modal is falsy
+        if (!error) return setTextAreaValue(
+            firstSentence === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa...'
+                        : firstSentence === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę...'
+                        : ""
+        );
     };
 
     //Props for Modal
