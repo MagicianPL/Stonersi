@@ -6,7 +6,7 @@ interface IProps {
     joints: number
     post: string
     comments: []
-    author: string
+    author: any
 }
 
 const Post: React.FC<IProps> = ({joints, post, comments, author}) => {
@@ -19,7 +19,7 @@ const Post: React.FC<IProps> = ({joints, post, comments, author}) => {
             <p>{post}</p>
             <div>
                 <p className="comments">Komentarze({comments.length})</p>
-                <p>~ {author}</p>
+                <p>~ {author ? author.login : "Anonim"}</p>
             </div>
         </StyledPost>
     );
