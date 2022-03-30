@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import StyledButton from '../StyledButton/StyledButton';
 import { useDispatch, useSelector } from 'react-redux';
-import createNewPost from '../../helpers/createNewPost';
+import { createNewPost } from '../../state/actions/postActions';
 import Modal from '../Modal/Modal';
 
 interface IProps {

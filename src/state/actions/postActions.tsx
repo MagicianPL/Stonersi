@@ -1,6 +1,6 @@
-import { showModal, setModalError, setModalMessage } from '../state/actions/modalActions';
+import { showModal, setModalError, setModalMessage } from './modalActions';
 
-const createNewPost = (post: {}, user: any = undefined) => async (dispatch: any) => {
+export const createNewPost = (post: {}, user: any = undefined) => async (dispatch: any) => {
     //Show loading modal
     dispatch(showModal());
 
@@ -23,5 +23,3 @@ const createNewPost = (post: {}, user: any = undefined) => async (dispatch: any)
         dispatch(setModalMessage("Twój post czeka na zaakceptowanie przez moderatora"));
     };
 };
-
-export default createNewPost;
