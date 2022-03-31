@@ -4,7 +4,7 @@ import { FaJoint } from 'react-icons/fa';
 import wordColorPost from '../../helpers/wordColorPost';
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
-import { getJoints } from '../../state/actions/jointsActions';
+import updateJoints from '../../helpers/updateJoints';
 
 interface IProps {
     joints: number
@@ -24,45 +24,12 @@ const Post: React.FC<IProps> = ({joints, post, comments, author, id}) => {
     const [ error, setError ] = useState("");
     const [ message, setMessage ] = useState("");
 
+    /**************************************************************************************** */
     //For giving score (joint) for post
     //When user is not logged in it shows errorMessage on modal, after 3s it dissapear
     const dispatch = useDispatch();
-    const giveJoint = async () => {
-        if(loggedUser) {
-            setModalIsShown(true);
-            const res = await fetch(`${process.env.REACT_APP_API}/posts/lightjoint`, {
-                method: "PATCH",
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                    'authorization': `Bearer ${loggedUser.token}`
-                  },
-                body: JSON.stringify({
-                    postId: id
-                })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                setMessage("Właśnie przypaliłeś jointa!");
-                setTimeout(() => {
-                    setModalIsShown(false);
-                    setMessage("");
-                    setError("");
-                }, 3000);
-                dispatch(getJoints(loggedUser._id))
-                setJointsScore(jointsScore + 1);
-            } else {
-                setError(data.message);
-                setTimeout(() => {
-                    setModalIsShown(false);
-                    setMessage("");
-                    setError("");
-                }, 3000);
-            }
-        } else {
-            setModalIsShown(true);
-            setError("Tylko zalogowani użytkownicy mogą przypalać jointy. Zaloguj się i przypal ;)");
-            setTimeout(() => {setModalIsShown(false)}, 3000)
-        }
+    const giveJoint = () => {
+        updateJoints(loggedUser, setModalIsShown, id, setMessage, setError, dispatch, jointsScore, setJointsScore)
     };
     /**********END OF GIVING SCORE FUNCIONALITY *********************************************** */
 
