@@ -70,10 +70,11 @@ interface IProps {
     content?: string
     showModal: boolean
     error: string
+    modalFromPost?: boolean
 }
 
-const Modal: React.FC<IProps> = ({content, showModal, error}) => {
-    
+const Modal: React.FC<IProps> = ({content, showModal, error, modalFromPost}) => {
+    console.log(modalFromPost)
     const dispatch = useDispatch();
     const hidingModal = () => {
         dispatch(hideModal());
@@ -85,7 +86,7 @@ const Modal: React.FC<IProps> = ({content, showModal, error}) => {
                 {content || error ?
                 <>
                 <p>{content ? content : error}</p>
-                <StyledButton center onClick={hidingModal}>OK</StyledButton>
+                {!modalFromPost && <StyledButton center onClick={hidingModal}>OK</StyledButton>}
                 </>
                 :
                 <Oval color="green" />
