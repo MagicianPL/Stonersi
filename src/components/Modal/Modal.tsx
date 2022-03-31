@@ -74,7 +74,7 @@ interface IProps {
 }
 
 const Modal: React.FC<IProps> = ({content, showModal, error, modalFromPost}) => {
-    console.log(modalFromPost)
+    
     const dispatch = useDispatch();
     const hidingModal = () => {
         dispatch(hideModal());
