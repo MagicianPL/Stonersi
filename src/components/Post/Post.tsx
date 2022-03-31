@@ -11,10 +11,15 @@ interface IProps {
 }
 
 const Post: React.FC<IProps> = ({joints, post, comments, author}) => {
+    //For giving score (joint) for post
+    const giveJoint = () => {
+        console.log("joint");
+    };
+
     return(
         <StyledPost>
             <div className="top">
-                <p>Przypal Jointa</p>
+                <p onClick={giveJoint}>Przypal Jointa</p>
                 <p className="joints"><span><FaJoint /></span><span>{joints}</span></p>
             </div>
             <p>{wordColorPost(post).map((wordObj) => wordObj.isColored === true ? <span style={{color: "#224024"}}>{wordObj.value}</span> : wordObj.value)}</p>
