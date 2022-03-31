@@ -21,7 +21,7 @@ const PostsContainer = () => {
                 allPosts.length < 1 && <div className="loader"><Rings ariaLabel="loading-indicator" /></div>
             }
             {
-                allPosts.length > 0 && allPosts.map((post: any) => <Post key={post._id} joints={post.receivedJoints} post={post.content} comments={post.comments} author={post.createdBy} />)
+                allPosts.length > 0 && allPosts.map((post: any) => <Post key={post._id} joints={post.receivedJoints} post={post.content} comments={post.comments} author={post.createdBy} id={post._id} />)
             }
         </StyledContainer>
     );

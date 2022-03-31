@@ -66,7 +66,7 @@ const TopBar = () => {
                 <Link to="/register"><li>Rejestracja</li></Link>
                 </>}
             </ul>
-            {user && joints ?
+            {user && joints !== undefined ?
                 joints === 0 ?
                 <p>Pozostało Ci 0 jointów do przypalenia</p>
                 :
