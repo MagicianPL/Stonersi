@@ -1,5 +1,9 @@
 import { getJoints } from "../state/actions/jointsActions";
 
+/* It just a functio which will be triggered on Post Component */
+/* When user clicks on 'light a joint' on post to give a score - function will be triggered*/
+/*It updates joints (score) on post and on user and it triggers getJoints redux action which fetches available user joints and rerenders TopBar Component to show that updated information*/
+
 const updateJoints = async (loggedUser: any, setModalIsShown: (boolean: boolean) => void, postId: string, setMessage: (message: string) => void, setError: (error: string) => void, dispatch: any, jointsScore: number, setJointsScore: (num: number) => void) => {
     if(loggedUser) {
         setModalIsShown(true);
