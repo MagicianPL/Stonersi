@@ -3,9 +3,20 @@ import { getJoints } from "../state/actions/jointsActions";
 /* It just a functio which will be triggered on Post Component */
 /* When user clicks on 'light a joint' on post to give a score - function will be triggered*/
 /*It updates joints (score) on post and on user and it triggers getJoints redux action which fetches available user joints and rerenders TopBar Component to show that updated information*/
-
-const updateJoints = async (loggedUser: any, setModalIsShown: (boolean: boolean) => void, postId: string, setMessage: (message: string) => void, setError: (error: string) => void, dispatch: any, jointsScore: number, setJointsScore: (num: number) => void) => {
+const updateJoints = async (loggedUser: any, setModalIsShown: (boolean: boolean) => void, postId: string, setMessage: (message: string) => void, setError: (error: string) => void, dispatch: any, jointsScore: number, setJointsScore: (num: number) => void, availableUserJoints: number) => {
     if(loggedUser) {
+        //Checking if user has available joints
+        if (availableUserJoints < 1) {
+            setModalIsShown(true);
+            setError("W tej chwili nie masz dostępnych jointów do przypalenia. Zostaną odnowione kolejnego dnia!");
+            setTimeout(() => {
+                setModalIsShown(false);
+                setMessage("");
+                setError("");
+            }, 4000);
+            return;
+        }
+        /**************************************** */
         setModalIsShown(true);
         const res = await fetch(`${process.env.REACT_APP_API}/posts/lightjoint`, {
             method: "PATCH",

@@ -28,8 +28,9 @@ const Post: React.FC<IProps> = ({joints, post, comments, author, id}) => {
     //For giving score (joint) for post
     //When user is not logged in it shows errorMessage on modal, after 3s it dissapear
     const dispatch = useDispatch();
+    const { joints: availableUserJoints } = useSelector((state: any) => state.availableJointsReducer);
     const giveJoint = () => {
-        updateJoints(loggedUser, setModalIsShown, id, setMessage, setError, dispatch, jointsScore, setJointsScore)
+        updateJoints(loggedUser, setModalIsShown, id, setMessage, setError, dispatch, jointsScore, setJointsScore, availableUserJoints)
     };
     /**********END OF GIVING SCORE FUNCIONALITY *********************************************** */
 
