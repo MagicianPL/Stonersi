@@ -70,6 +70,9 @@ const TopBar = () => {
                 joints === 0 ?
                 <p>Pozostało Ci 0 jointów do przypalenia</p>
                 :
+                joints === 1 ?
+                <p>Pozostał Ci 1 joint do przypalenia</p>
+                :
                 <p>{`Pozostały Ci ${joints} jointy do przypalenia`}</p>
                 : null}
         </StyledWrapper>
