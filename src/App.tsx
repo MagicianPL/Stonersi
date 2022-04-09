@@ -13,6 +13,7 @@ import AddPostForm from './components/AddPostForm/AddPostForm';
 import PostsContainer from './views/PostsContainer/PostsContainer';
 import RegisterForm from './views/RegisterForm/RegisterForm';
 import LoginForm from './views/LoginForm/LoginForm';
+import PostPage from './views/PostPage/PostPage';
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -43,6 +44,7 @@ function App() {
         } />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/post/:id" element={<PostPage />} />
       </Routes>
     </StyledMain>
     </Router>

@@ -3,6 +3,7 @@ import StyledPost from './StyledPost';
 import { FaJoint } from 'react-icons/fa';
 import wordColorPost from '../../helpers/wordColorPost';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import updateJoints from '../../helpers/updateJoints';
 
@@ -43,7 +44,7 @@ const Post: React.FC<IProps> = ({joints, post, comments, author, id}) => {
             </div>
             <p>{wordColorPost(post).map((wordObj, index) => wordObj.isColored === true ? <span key={index} style={{color: "#224024"}}>{wordObj.value}</span> : wordObj.value)}</p>
             <div>
-                <p className="comments">Komentarze({comments.length})</p>
+                <Link to={`/post/${id}`}><p className="comments">Komentarze({comments.length})</p></Link>
                 <p>~ {author ? author.login : "Anonim"}</p>
             </div>
         </StyledPost>

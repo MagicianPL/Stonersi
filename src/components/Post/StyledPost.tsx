@@ -81,6 +81,11 @@ const StyledPost = styled.div`
     .comments {
         cursor: pointer;
     }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export default StyledPost;
