@@ -8,6 +8,7 @@ import Modal from '../../components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showModal, setModalError } from '../../state/actions/modalActions';
 import Comments from '../../components/Comments/Comments';
+import StyledButton from '../../components/StyledButton/StyledButton';
 
 const PostPage = () => {
 
@@ -36,6 +37,16 @@ const PostPage = () => {
         fetchPost();
     }, [postId, dispatch]);
 
+    const { user } = useSelector((state: any) => state.userReducer);
+    const handleAddComment = () => {
+        if(!user) {
+            dispatch(showModal());
+            dispatch(setModalError("Tylko zalogowani użytkownicy mogą dodawać komentarze. Zaloguj się i napisz co chodzi Ci po głowie!"));
+            return;
+        };
+        console.log("Komentarz dodany");
+    };
+
     return(
         <>
         <StyledWrapper>
@@ -48,6 +59,7 @@ const PostPage = () => {
             </p>
            <p>{wordColorPost(post.content).map((word, index) => word.isColored ? <span key={index} style={{color: "#224024"}}>{word.value}</span> : word.value)}</p>
            <p className="author">~ {post.createdBy ? post.createdBy.login : "Anonim"}</p>
+           <StyledButton onClick={handleAddComment}>Dodaj Komentarz</StyledButton>
            <Comments comments={post.comments} />
            </>
            }
