@@ -1,7 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Input from '../Input/Input';
 import StyledButton from '../StyledButton/StyledButton';
+import { hideCommentModal } from '../../state/actions/commentsActions';
 
 const StyledWrapper = styled.div`
     width: 100%;
@@ -45,14 +47,12 @@ const StyledWrapper = styled.div`
     }
 `;
 
-interface IProps {
-    setModal: (value: React.SetStateAction<boolean>) => void
-};
+const AddCommentForm = () => {
 
-const AddCommentForm: React.FC<IProps> = ({setModal}) => {
+    const dispatch = useDispatch();
     const handleCanceling = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        setModal(false);
+        dispatch(hideCommentModal());
     };
 
     return(

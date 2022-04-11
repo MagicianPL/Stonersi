@@ -10,6 +10,7 @@ import { showModal, setModalError } from '../../state/actions/modalActions';
 import Comments from '../../components/Comments/Comments';
 import StyledButton from '../../components/StyledButton/StyledButton';
 import AddCommentForm from '../../components/AddCommentForm/AddCommentForm';
+import { showAddCommentModal } from '../../state/actions/commentsActions';
 
 const PostPage = () => {
 
@@ -39,7 +40,7 @@ const PostPage = () => {
     }, [postId, dispatch]);
 
     // Add Comment stuff
-    const [showAddCommentModal, setShowAddCommentModal] = useState(false);
+    const { showAddComment } = useSelector((state: any) => state.addCommentFormReducer);
 
     const { user } = useSelector((state: any) => state.userReducer);
     const handleAddComment = () => {
@@ -48,7 +49,7 @@ const PostPage = () => {
             dispatch(setModalError("Tylko zalogowani użytkownicy mogą dodawać komentarze. Zaloguj się i napisz co chodzi Ci po głowie!"));
             return;
         };
-        setShowAddCommentModal(true);
+        dispatch(showAddCommentModal());
     };
 
     return(
@@ -68,7 +69,7 @@ const PostPage = () => {
            </>
            }
         </StyledWrapper>
-        {showAddCommentModal && <AddCommentForm setModal={setShowAddCommentModal}/>}
+        {showAddComment && <AddCommentForm />}
         <Modal showModal={modalIsVisible} error={error} />
         </>
     );
