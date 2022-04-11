@@ -1,7 +1,7 @@
 import { AnyAction } from "redux";
 import { HIDE_MODAL, SET_MODAL_ERROR, SET_MODAL_MESSAGE, SHOW_MODAL } from "../constants/modalConstants";
 
-const reducer = (state = {showModal: false}, action: AnyAction) => {
+const reducer = (state = {showModal: false, error: ""}, action: AnyAction) => {
     switch (action.type) {
         case SHOW_MODAL:
             return {
