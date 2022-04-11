@@ -19,6 +19,10 @@ const StyledWrapper = styled.ul`
             position: relative;
             transition: all 0.3s;
 
+            @media (max-width: 470px) {
+                font-size: 18px;
+            }
+
             &::before {
                 content: "";
                 position: absolute;

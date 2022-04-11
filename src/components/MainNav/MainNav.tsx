@@ -7,6 +7,7 @@ const MainNav = () => {
                 <li>Główna</li>
                 <li>Top 5</li>
                 <li>Filmy</li>
+                <li>FAQ</li>
             </StyledWrapper>
     );
 };
