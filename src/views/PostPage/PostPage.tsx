@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import StyledWrapper from './StyledWrapper';
 import { useParams } from 'react-router';
-import styled from 'styled-components';
-import StyledPost from '../../components/Post/StyledPost';
 import wordColorPost from '../../helpers/wordColorPost';
 import { BallTriangle } from 'react-loader-spinner';
 import Modal from '../../components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showModal, setModalError } from '../../state/actions/modalActions';
-
-const StyledWrapper = styled(StyledPost)`
-    & > p {
-        margin-left: 0;
-    }
-
-    .loader {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        svg {
-            stroke: green;
-        }
-    }
-`;
 
 const PostPage = () => {
 
