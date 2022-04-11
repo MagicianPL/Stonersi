@@ -3,10 +3,21 @@ import { useParams } from 'react-router';
 import styled from 'styled-components';
 import StyledPost from '../../components/Post/StyledPost';
 import wordColorPost from '../../helpers/wordColorPost';
+import { BallTriangle } from 'react-loader-spinner';
 
 const StyledWrapper = styled(StyledPost)`
     & > p {
         margin-left: 0;
+    }
+
+    .loader {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        svg {
+            stroke: green;
+        }
     }
 `;
 
@@ -34,6 +45,7 @@ const PostPage = () => {
 
     return(
         <StyledWrapper>
+            {!post && <div className="loader"><BallTriangle /></div>}
            {post && <p>{wordColorPost(post.content).map((word, index) => word.isColored ? <span key={index} style={{color: "#224024"}}>{word.value}</span> : word.value)}</p>}
         </StyledWrapper>
     );
