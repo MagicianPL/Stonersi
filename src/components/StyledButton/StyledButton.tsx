@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface IProps {
   center?: boolean
+  color?: string
 }
 
 const StyledButton = styled.button<IProps>`
@@ -11,7 +12,7 @@ const StyledButton = styled.button<IProps>`
   background: none;
   cursor: pointer;
   font-weight: bold;
-  color: #4aa150;
+  color: ${({color}) => color ? color : "#4aa150"};
   transition: all 0.5s;
 
   &:hover {

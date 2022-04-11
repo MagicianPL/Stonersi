@@ -19,7 +19,7 @@ const Wrapper = styled.div`
         margin-right: auto;
     }
 
-    input {
+    input, textarea {
         padding: 5px 8px;
         width: 100%;
         color: #346137;
@@ -34,10 +34,18 @@ interface IProps {
     name?: string
     value?: string
     placeholder?: string
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: any
 }
 
 const Input: React.FC<IProps> = ({id, label, type, name, value, placeholder, onChange}) => {
+    if(type === "textarea") {
+
+    return(<Wrapper>
+            <label htmlFor={id}>{label}</label>
+            <textarea id={id} name={name} value={value} placeholder={placeholder} onChange={onChange} />
+        </Wrapper>)
+    };
+
     return(
         <Wrapper>
             <label htmlFor={id}>{label}</label>

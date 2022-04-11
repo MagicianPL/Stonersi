@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Input from '../Input/Input';
+import StyledButton from '../StyledButton/StyledButton';
 
 const StyledWrapper = styled.div`
     width: 100%;
@@ -29,6 +30,18 @@ const StyledWrapper = styled.div`
             padding: 5px 0;
             border-radius: 4px;
         }
+
+        textarea {
+            min-height: 100px;
+            font-size: 18px;
+        }
+
+        .actions {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+        }
     }
 `;
 
@@ -37,7 +50,11 @@ const AddCommentForm = () => {
         <StyledWrapper>
             <form>
                 <h1>Dodaj komentarz</h1>
-                <Input id="comment" label="Twój komentarz" />
+                <Input type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
+                <div className="actions">
+                    <StyledButton center>Dodaj</StyledButton>
+                    <StyledButton center color="red">Anuluj</StyledButton>
+                </div>
             </form>
         </StyledWrapper>
     );
