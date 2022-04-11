@@ -6,7 +6,7 @@ import StyledButton from '../StyledButton/StyledButton';
 const StyledWrapper = styled.div`
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -45,7 +45,16 @@ const StyledWrapper = styled.div`
     }
 `;
 
-const AddCommentForm = () => {
+interface IProps {
+    setModal: (value: React.SetStateAction<boolean>) => void
+};
+
+const AddCommentForm: React.FC<IProps> = ({setModal}) => {
+    const handleCanceling = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        setModal(false);
+    };
+
     return(
         <StyledWrapper>
             <form>
@@ -53,7 +62,7 @@ const AddCommentForm = () => {
                 <Input type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
                 <div className="actions">
                     <StyledButton center>Dodaj</StyledButton>
-                    <StyledButton center color="red">Anuluj</StyledButton>
+                    <StyledButton center color="red" onClick={handleCanceling}>Anuluj</StyledButton>
                 </div>
             </form>
         </StyledWrapper>

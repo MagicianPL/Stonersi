@@ -38,6 +38,9 @@ const PostPage = () => {
         fetchPost();
     }, [postId, dispatch]);
 
+    // Add Comment stuff
+    const [showAddCommentModal, setShowAddCommentModal] = useState(false);
+
     const { user } = useSelector((state: any) => state.userReducer);
     const handleAddComment = () => {
         if(!user) {
@@ -45,7 +48,7 @@ const PostPage = () => {
             dispatch(setModalError("Tylko zalogowani użytkownicy mogą dodawać komentarze. Zaloguj się i napisz co chodzi Ci po głowie!"));
             return;
         };
-        console.log("Komentarz dodany");
+        setShowAddCommentModal(true);
     };
 
     return(
@@ -65,7 +68,7 @@ const PostPage = () => {
            </>
            }
         </StyledWrapper>
-        <AddCommentForm />
+        {showAddCommentModal && <AddCommentForm setModal={setShowAddCommentModal}/>}
         <Modal showModal={modalIsVisible} error={error} />
         </>
     );
