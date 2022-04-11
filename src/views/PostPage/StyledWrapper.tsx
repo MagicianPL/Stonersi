@@ -5,7 +5,7 @@ const StyledWrapper = styled(StyledPost)`
     .score {
         display: flex;
         gap: 8px;
-        margin-right: 30px;
+        margin: 20px 30px 10px auto;
         font-weight: bold;
     }
 
