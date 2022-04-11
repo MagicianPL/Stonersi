@@ -36,8 +36,6 @@ const PostPage = () => {
         fetchPost();
     }, [postId, dispatch]);
 
-    useEffect(()=> console.log(post))
-
     return(
         <>
         <StyledWrapper>

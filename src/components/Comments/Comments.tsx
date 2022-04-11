@@ -1,29 +1,13 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import StyledWrapper from './StyledWrapper';
 
-const StyledWrapper = styled.div`
-    && {
-        width: 100%;
-        display: block;
-    }
-    
-    h1 {
-        text-align: left;
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    .comment {
-        margin-bottom: 15px;
-    }
-`;
+/*This Components shows comments for specific post - it is used on PostPage Component*/
 
 interface IProps {
     comments: []
 }
 
 const Comments: React.FC<IProps> = ({comments}) => {
-    useEffect(()=> console.log(comments))
     return(
         <StyledWrapper>
             <h1>{comments.length < 1 ? "Brak komentarzy" : "Komentarze:"}</h1>
@@ -31,6 +15,8 @@ const Comments: React.FC<IProps> = ({comments}) => {
                 {comments.map((comment: any) =>
                 <div className="comment" key={comment._id}>
                 <p>{comment.content}</p>
+                <p>~ {comment.author.login}</p>
+                <hr />
                 </div>)}
             </div>
         </StyledWrapper>
