@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import StyledWrapper from './StyledWrapper';
+import { FaJoint } from 'react-icons/fa';
 import { useParams } from 'react-router';
 import wordColorPost from '../../helpers/wordColorPost';
 import { BallTriangle } from 'react-loader-spinner';
@@ -34,11 +35,22 @@ const PostPage = () => {
         fetchPost();
     }, [postId, dispatch]);
 
+    useEffect(()=> console.log(post))
+
     return(
         <>
         <StyledWrapper>
             {!post && <div className="loader"><BallTriangle /></div>}
-           {post && <p>{wordColorPost(post.content).map((word, index) => word.isColored ? <span key={index} style={{color: "#224024"}}>{word.value}</span> : word.value)}</p>}
+           {post &&
+           <>
+           <p className="score">
+                <FaJoint />
+               {post.receivedJoints}
+            </p>
+           <p>{wordColorPost(post.content).map((word, index) => word.isColored ? <span key={index} style={{color: "#224024"}}>{word.value}</span> : word.value)}</p>
+           <p className="author">~ {post.createdBy ? post.createdBy.login : "Anonim"}</p>
+           </>
+           }
         </StyledWrapper>
         <Modal showModal={modalIsVisible} error={error} />
         </>

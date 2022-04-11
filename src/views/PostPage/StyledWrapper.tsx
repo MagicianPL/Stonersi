@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import StyledPost from '../../components/Post/StyledPost';
 
 const StyledWrapper = styled(StyledPost)`
-    & > p {
-        margin-left: 0;
+    .score {
+        display: flex;
+        gap: 8px;
+        margin-right: 30px;
+        font-weight: bold;
     }
 
     .loader {
