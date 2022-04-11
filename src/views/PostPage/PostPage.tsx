@@ -7,6 +7,7 @@ import { BallTriangle } from 'react-loader-spinner';
 import Modal from '../../components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showModal, setModalError } from '../../state/actions/modalActions';
+import Comments from '../../components/Comments/Comments';
 
 const PostPage = () => {
 
@@ -49,6 +50,7 @@ const PostPage = () => {
             </p>
            <p>{wordColorPost(post.content).map((word, index) => word.isColored ? <span key={index} style={{color: "#224024"}}>{word.value}</span> : word.value)}</p>
            <p className="author">~ {post.createdBy ? post.createdBy.login : "Anonim"}</p>
+           <Comments comments={post.comments} />
            </>
            }
         </StyledWrapper>
