@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showModal, setModalError } from '../../state/actions/modalActions';
 import Comments from '../../components/Comments/Comments';
 import StyledButton from '../../components/StyledButton/StyledButton';
+import AddCommentForm from '../../components/AddCommentForm/AddCommentForm';
 
 const PostPage = () => {
 
@@ -64,6 +65,7 @@ const PostPage = () => {
            </>
            }
         </StyledWrapper>
+        <AddCommentForm />
         <Modal showModal={modalIsVisible} error={error} />
         </>
     );
