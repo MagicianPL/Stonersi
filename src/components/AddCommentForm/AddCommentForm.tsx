@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Input from '../Input/Input';
 import StyledButton from '../StyledButton/StyledButton';
-import { hideCommentModal } from '../../state/actions/commentsActions';
+import { hideCommentModal, createNewComment } from '../../state/actions/commentsActions';
 
 const StyledWrapper = styled.div`
     width: 100%;
@@ -47,7 +47,18 @@ const StyledWrapper = styled.div`
     }
 `;
 
-const AddCommentForm = () => {
+interface IProps {
+    postId: String
+}
+
+const AddCommentForm: React.FC<IProps> = ({postId}) => {
+    const { user } = useSelector((state: any) => state.userReducer);
+    const { loading, success, error } = useSelector((state: any) => state.addCommentFormReducer);
+    const [comment, setComment] = useState("");
+
+    const handleTextChange = (e: any) => {
+        setComment(e.target.value);
+    };
 
     const dispatch = useDispatch();
     const handleCanceling = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -55,13 +66,23 @@ const AddCommentForm = () => {
         dispatch(hideCommentModal());
     };
 
+    const handleNewCommentSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+        dispatch(createNewComment({
+            author: user._id,
+            content: comment,
+            postId
+        }, user?.token));
+    };
+
     return(
         <StyledWrapper>
             <form>
                 <h1>Dodaj komentarz</h1>
-                <Input type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
+                <Input onChange={handleTextChange} type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
                 <div className="actions">
-                    <StyledButton center>Dodaj</StyledButton>
+                    <StyledButton center onClick={handleNewCommentSubmit}>Dodaj</StyledButton>
                     <StyledButton center color="red" onClick={handleCanceling}>Anuluj</StyledButton>
                 </div>
             </form>

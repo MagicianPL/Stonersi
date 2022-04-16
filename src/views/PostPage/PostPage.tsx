@@ -69,7 +69,7 @@ const PostPage = () => {
            </>
            }
         </StyledWrapper>
-        {showAddComment && <AddCommentForm />}
+        {showAddComment && postId && <AddCommentForm postId={postId} />}
         <Modal showModal={modalIsVisible} error={error} />
         </>
     );
