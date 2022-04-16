@@ -20,7 +20,7 @@ const addCommentFormReducer = (state = {showAddComment: false, success: null, er
             return {
                 ...state,
                 loading: false,
-                success: true
+                success: "Twój komentarz został dodany! Strona zostanie przeładowana..."
             };
         case SEND_COMMENT_FAILED:
             return {

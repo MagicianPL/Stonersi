@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Input from '../Input/Input';
 import StyledButton from '../StyledButton/StyledButton';
+import { TailSpin } from  'react-loader-spinner'
 import { hideCommentModal, createNewComment } from '../../state/actions/commentsActions';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.div<{loading: Boolean, success: any, error: any}>`
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
@@ -24,6 +25,13 @@ const StyledWrapper = styled.div`
         padding: 15px 10px;
         width: 100%;
         max-width: 800px;
+        min-height: 100px;
+        ${ (({loading, success, error}) => loading || success || error ? `
+        display: flex;
+        justify-content: center;
+        ` : null)
+
+        }
 
         h1 {
             text-align: center;
@@ -44,6 +52,12 @@ const StyledWrapper = styled.div`
             gap: 20px;
             justify-content: flex-start;
         }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
     }
 `;
 
@@ -55,7 +69,7 @@ const AddCommentForm: React.FC<IProps> = ({postId}) => {
     const { user } = useSelector((state: any) => state.userReducer);
     const { loading, success, error } = useSelector((state: any) => state.addCommentFormReducer);
     const [comment, setComment] = useState("");
-
+    useEffect(() => console.log(loading, success, error))
     const handleTextChange = (e: any) => {
         setComment(e.target.value);
     };
@@ -77,14 +91,26 @@ const AddCommentForm: React.FC<IProps> = ({postId}) => {
     };
 
     return(
-        <StyledWrapper>
+        <StyledWrapper loading={loading} success={success} error={error} >
             <form>
+                {!loading && !success && !error ?
+                <>
                 <h1>Dodaj komentarz</h1>
                 <Input onChange={handleTextChange} type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
                 <div className="actions">
                     <StyledButton center onClick={handleNewCommentSubmit}>Dodaj</StyledButton>
                     <StyledButton center color="red" onClick={handleCanceling}>Anuluj</StyledButton>
                 </div>
+                </>
+                :
+                success ?
+                <p>{success}</p>
+                :
+                error ?
+                <p>{error}</p>
+                :
+                <TailSpin color="green" height={120} width={120} />
+                }
             </form>
         </StyledWrapper>
     );

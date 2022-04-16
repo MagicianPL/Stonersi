@@ -32,4 +32,7 @@ export const createNewComment = (commentData: {
     };
 
     dispatch({type: SEND_COMMENT_SUCCESS});
+    setTimeout(() => {
+        window.location.reload();
+    }, 3000)
 };
