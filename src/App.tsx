@@ -15,6 +15,7 @@ import RegisterForm from './views/RegisterForm/RegisterForm';
 import LoginForm from './views/LoginForm/LoginForm';
 import PostPage from './views/PostPage/PostPage';
 import ScrollToTop from './components/ScrollToTop';
+import BackgroundMusic from './components/BackGroundMusic/BackgroundMusic';
 
 
 
@@ -33,6 +34,7 @@ function App() {
     <ScrollToTop />
     <TopBar />
     <Header />
+    <BackgroundMusic />
     <StyledMain>
       <Routes>
         <Route path="/" element={
