@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StyledWrapper from './StyledWrapper';
 import Input from '../Input/Input';
@@ -15,7 +15,7 @@ const AddCommentForm: React.FC<IProps> = ({postId}) => {
     const { user } = useSelector((state: any) => state.userReducer);
     const { loading, success, error } = useSelector((state: any) => state.addCommentFormReducer);
     const [comment, setComment] = useState("");
-    useEffect(() => console.log(loading, success, error))
+    
     const handleTextChange = (e: any) => {
         setComment(e.target.value);
     };
