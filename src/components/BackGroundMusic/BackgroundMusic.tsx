@@ -1,16 +1,24 @@
 import React, { useRef, useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
+import playlist from "../../playlist.js";
 
 const BackgroundMusic = () => {
     //It will be player itself with a lot of builded functions
     const player = useRef<any>(null);
     //For useEffect dependency
     const [playerIsReady, setPlayerIsReady] = useState(false);
+    //Just a playlist to play
+    const shuffledPlaylist = playlist.sort(() => Math.random() - 0.5);
 
     //When player is loaded on page it is setting with ref
+    //Then loads playlist
     //Also it sets video to start (from 0 seconds)
     const onReady = (e: any) => {
         player.current = e.target;
+        const arrayOfIDs = shuffledPlaylist.map(music => music.id);
+        player.current.cuePlaylist(arrayOfIDs);
+        player.current.setLoop(true);
+
         player.current.seekTo(0);
 
         !playerIsReady && setPlayerIsReady(true);
@@ -28,23 +36,14 @@ const BackgroundMusic = () => {
         player.current.playVideo();
     }
 
-    /* State of player. When music is ended then the next one is played */
-    const handleStateChange = (e: any) => {
-        if (e.data === 0) {
-            //Play another music
-            console.log("Music Ended");
-            player.current.loadVideoById("47dtFZ8CFo8")
-        };
-    };
-
     return(
         <>
         <div style={{width: 300, height: 250, visibility: 'visible', position: 'absolute', top: 10, left: 20}}>
-            <YouTube videoId="j55Evxqgweo" opts={{playerVars: {
+            <YouTube opts={{playerVars: {
             autoplay: 0,
             loop: 1,
             },
-            }} containerStyle={{width: 0, height: 0}} onReady={onReady} onStateChange={handleStateChange} />
+            }} containerStyle={{width: 0, height: 0}} onReady={onReady} />
         </div>
        { player && <button onClick={handleClick}>Play</button> }
         </>
