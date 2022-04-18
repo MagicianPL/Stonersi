@@ -57,6 +57,7 @@ const BackgroundMusic = () => {
         const arrayOfIDs = shuffledPlaylist.map(music => music.id);
         player.current.cuePlaylist(arrayOfIDs);
         player.current.setLoop(true);
+        player.current.setVolume(1);
 
         player.current.seekTo(0);
 

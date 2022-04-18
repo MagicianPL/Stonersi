@@ -2,10 +2,6 @@
 
 const playlist = [
   {
-    title: "Capital Cities - Safe and Sound",
-    id: "k2LU6XvAZqM",
-  },
-  {
     title: "Mac Miller - Selfcare",
     id: "SsKT0s5J8ko",
   },
@@ -20,6 +16,14 @@ const playlist = [
   {
     title: "Smoke music list",
     id: "P84BxRaypF4&t=125s",
+  },
+  {
+    title: "420 vibes",
+    id: "dddJRFX44zY",
+  },
+  {
+    title: "House 10",
+    id: "n__NrG-QGb4",
   },
 ];
 
