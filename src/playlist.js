@@ -17,6 +17,10 @@ const playlist = [
     title: "Kid Cudi - Day n Night",
     id: "VrDfSZ_6f4U",
   },
+  {
+    title: "Smoke music list",
+    id: "P84BxRaypF4&t=125s",
+  },
 ];
 
 export default playlist;
