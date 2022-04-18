@@ -44,7 +44,7 @@ const AddCommentForm: React.FC<IProps> = ({postId}) => {
                 <h1>Dodaj komentarz</h1>
                 <Input onChange={handleTextChange} type="textarea" id="comment" label="Twój komentarz" placeholder="Śmiało, naskrob coś!" />
                 <div className="actions">
-                    <StyledButton center onClick={handleNewCommentSubmit}>Dodaj</StyledButton>
+                    <StyledButton center disabled={!comment} onClick={handleNewCommentSubmit}>Dodaj</StyledButton>
                     <StyledButton center color="red" onClick={handleCanceling}>Anuluj</StyledButton>
                 </div>
                 </>
