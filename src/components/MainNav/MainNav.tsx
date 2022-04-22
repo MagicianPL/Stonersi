@@ -7,7 +7,7 @@ const MainNav = () => {
             <StyledWrapper>
                 <Link to="/"><li>Główna</li></Link>
                 <Link to="/top"><li>Top 5</li></Link>
-                <li>Filmy</li>
+                <Link to="/videos"><li>Filmy</li></Link>
                 <li>FAQ</li>
             </StyledWrapper>
     );
