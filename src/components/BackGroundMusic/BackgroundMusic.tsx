@@ -53,10 +53,11 @@ const BackgroundMusic = () => {
             },
             }} containerStyle={{width: 0, height: 0}} onReady={onReady} />
         </div>
-        {isPlaying ?
+        {isPlaying && playerIsReady ?
         <GiSpeaker onClick={handleClick} />
-        :
+        : playerIsReady ?
         <GiSpeakerOff onClick={handleClick} />
+        : null
     }
        </StyledWrapper>
     )
