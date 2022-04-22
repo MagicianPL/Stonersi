@@ -14,6 +14,7 @@ import PostsContainer from './views/PostsContainer/PostsContainer';
 import RegisterForm from './views/RegisterForm/RegisterForm';
 import LoginForm from './views/LoginForm/LoginForm';
 import PostPage from './views/PostPage/PostPage';
+import TopPostsContainer from './views/TopPosts/TopPostsContainer';
 import ScrollToTop from './components/ScrollToTop';
 import BackgroundMusic from './components/BackGroundMusic/BackgroundMusic';
 
@@ -44,6 +45,7 @@ function App() {
         <PostsContainer />
         </>
         } />
+        <Route path="/top" element={<TopPostsContainer />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/post/:id" element={<PostPage />} />
