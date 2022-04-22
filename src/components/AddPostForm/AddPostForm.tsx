@@ -12,8 +12,8 @@ interface IProps {
 const AddPostForm: React.FC<IProps> = ({show}) => {
     const [firstSentence, setFirstSentence] = useState('joint');
     const [textAreaValue, setTextAreaValue] = useState(
-        firstSentence === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa...'
-                        : firstSentence === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę...'
+        firstSentence === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa... '
+                        : firstSentence === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę... '
                         : ""
     );
 
@@ -23,8 +23,8 @@ const AddPostForm: React.FC<IProps> = ({show}) => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFirstSentence(e.target.value);
         setTextAreaValue(
-            e.target.value === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa...'
-                        : e.target.value === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę...'
+            e.target.value === 'joint' ? 'Kiedy ostatnio paliłem/am papierosa... '
+                        : e.target.value === 'edible' ? 'Kiedy ostatnio jadłem/am czekoladę... '
                         : ""
         );
     };
