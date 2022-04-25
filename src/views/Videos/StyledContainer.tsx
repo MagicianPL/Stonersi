@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
     h2 {
         color: #224024;
         text-align: center;
+        margin-bottom: 80px;
     }
 `;
 
