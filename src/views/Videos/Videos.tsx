@@ -9,6 +9,7 @@ const Videos = () => {
     return(
         <StyledContainer>
             <h1>FILMY</h1>
+            <h2>Zchilloutuj się!</h2>
         </StyledContainer>
     );
 };

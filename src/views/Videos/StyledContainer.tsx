@@ -12,6 +12,11 @@ const StyledContainer = styled.div`
         text-align: center;
         padding: 20px 0;
     }
+
+    h2 {
+        color: #224024;
+        text-align: center;
+    }
 `;
 
 export default StyledContainer;
