@@ -2,15 +2,28 @@ import React from 'react';
 import StyledContainer from './StyledContainer';
 import Movie from '../../components/Movie/Movie';
 import { Rings } from 'react-loader-spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMovies } from '../../state/actions/moviesActions';
 
 
 const Videos = () => {
+    const { isLoading, movies, error } = useSelector((state: any) => state.moviesReducer);
+
+    //Get all movies once
+    const dispatch = useDispatch();
+    dispatch(getMovies());
+   
     return(
         <StyledContainer>
-            <h1>FILMY</h1>
-            <h2>Zchilloutuj się!</h2>
-            <Movie videoId="https://www.youtube.com/watch?v=RRl_C73vFtQ&list=RDRRl_C73vFtQ&start_radio=1" title="Title of the movie" description="Just a simple description of the video" />
-            <Movie videoId="https://www.youtube.com/watch?v=RRl_C73vFtQ&list=RDRRl_C73vFtQ&start_radio=1" title="Title of the movie" description="Just a simple description of the video" />
+            {isLoading && <Rings />}
+            {movies && 
+            <>
+                <h1>FILMY</h1>
+                <h2>Zchilloutuj się!</h2>
+                {movies.map((movie: any) => <Movie videoId={movie.videoId} title={movie.title} description={movie.description} />)}
+            </>
+            }
+            {error && <p className="error">{error}</p>}
         </StyledContainer>
     );
 };

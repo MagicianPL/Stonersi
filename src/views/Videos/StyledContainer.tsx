@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-    .loader svg {
+    svg {
         width: 150px;
         height: 150px;
         margin: 0 auto;
@@ -17,6 +17,14 @@ const StyledContainer = styled.div`
         color: #224024;
         text-align: center;
         margin-bottom: 80px;
+    }
+
+    .error {
+        text-align: center;
+        font-weight: bold;
+        color: red;
+        font-size: 22px;
+        padding-top: 25px;
     }
 `;
 
