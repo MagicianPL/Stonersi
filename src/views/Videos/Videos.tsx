@@ -20,7 +20,7 @@ const Videos = () => {
             <>
                 <h1>FILMY</h1>
                 <h2>Zchilloutuj się!</h2>
-                {movies.map((movie: any) => <Movie videoId={movie.videoId} title={movie.title} description={movie.description} />)}
+                {movies.map((movie: any) => <Movie key={movie.videoId} videoId={movie.videoId} title={movie.title} description={movie.description} />)}
             </>
             }
             {error && <p className="error">{error}</p>}
