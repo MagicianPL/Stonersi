@@ -4,13 +4,15 @@ import userReducer from './userReducer';
 import availableJointsReducer from "./availableJointsReducer";
 import createNewPostReducer from "./createNewPostReducer";
 import addCommentFormReducer from "./addCommentFormReducer";
+import moviesReducer from "./moviesReducer";
 
 const reducers = combineReducers({
     modalReducer,
     userReducer,
     availableJointsReducer,
     createNewPostReducer,
-    addCommentFormReducer
+    addCommentFormReducer,
+    moviesReducer
 });
 
 export default reducers;
