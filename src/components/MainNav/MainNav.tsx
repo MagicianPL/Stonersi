@@ -8,7 +8,7 @@ const MainNav = () => {
                 <Link to="/"><li>Główna</li></Link>
                 <Link to="/top"><li>Top 5</li></Link>
                 <Link to="/videos"><li>Filmy</li></Link>
-                <li>FAQ</li>
+                <Link to="/faq"><li>FAQ</li></Link>
             </StyledWrapper>
     );
 };

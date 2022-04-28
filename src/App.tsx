@@ -16,6 +16,7 @@ import LoginForm from './views/LoginForm/LoginForm';
 import PostPage from './views/PostPage/PostPage';
 import TopPostsContainer from './views/TopPosts/TopPostsContainer';
 import Videos from './views/Videos/Videos';
+import FaqPage from './views/FAQ/FaqPage';
 import ScrollToTop from './components/ScrollToTop';
 import BackgroundMusic from './components/BackGroundMusic/BackgroundMusic';
 
@@ -48,6 +49,7 @@ function App() {
         } />
         <Route path="/top" element={<TopPostsContainer />} />
         <Route path="/videos" element={<Videos />} />
+        <Route path="/faq" element={<FaqPage />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/post/:id" element={<PostPage />} />
