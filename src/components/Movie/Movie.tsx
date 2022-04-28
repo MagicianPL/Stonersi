@@ -8,6 +8,11 @@ const StyledWrapper = styled.div`
     grid-template-columns: 520px 1fr;
     grid-template-rows: 60px auto;
     column-gap: 30px;
+    margin-bottom: 60px;
+
+    @media (max-width: 841px) {
+        display: block;
+    }
 
     .movieContainer {
         position: relative;
@@ -16,6 +21,16 @@ const StyledWrapper = styled.div`
         padding-bottom: 26.25%;
         grid-column: 1/3;
         grid-row: 1/3;
+
+        @media (max-width: 841px) {
+            padding-bottom: 60.25%;
+            margin: 0 auto 8px auto;
+
+        }
+
+        @media (min-width: 568px) {
+            padding-bottom: 293px;
+        }
 
         .movie {
             position: absolute;
@@ -31,6 +46,10 @@ const StyledWrapper = styled.div`
         grid-row: 1/2;
         padding-top: 8px;
         font-size: 20px;
+
+        @media (max-width: 690px) {
+            margin-bottom: 8px;
+        }
     }
 
     p {
@@ -39,14 +58,20 @@ const StyledWrapper = styled.div`
     }
 `;
 
-const Movie = () => {
+interface IProps {
+    videoId: string
+    title: string
+    description: string
+}
+
+const Movie: React.FC<IProps> = ({videoId, title, description}) => {
     return(
         <StyledWrapper>
             <div className="movieContainer">
-                <YouTube className="movie" videoId='https://www.youtube.com/watch?v=RRl_C73vFtQ&list=RDRRl_C73vFtQ&start_radio=1' />
+                <YouTube className="movie" videoId={videoId} />
             </div>
-            <h3>Title of movie</h3>
-            <p>YouTube – serwis internetowy założony w lutym 2005 roku, który umożliwia bezpłatne umieszczanie, nadawanie na żywo, ocenianie i komentowanie filmów. Prezesem od 2014 roku jest Susan Wojcicki.</p>
+            <h3>{title}</h3>
+            <p>{description}</p>
         </StyledWrapper>
     );
 };

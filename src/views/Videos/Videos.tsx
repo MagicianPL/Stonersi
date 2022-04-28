@@ -12,7 +12,8 @@ const Videos = () => {
         <StyledContainer>
             <h1>FILMY</h1>
             <h2>Zchilloutuj się!</h2>
-            <Movie />
+            <Movie videoId="https://www.youtube.com/watch?v=RRl_C73vFtQ&list=RDRRl_C73vFtQ&start_radio=1" title="Title of the movie" description="Just a simple description of the video" />
+            <Movie videoId="https://www.youtube.com/watch?v=RRl_C73vFtQ&list=RDRRl_C73vFtQ&start_radio=1" title="Title of the movie" description="Just a simple description of the video" />
         </StyledContainer>
     );
 };
