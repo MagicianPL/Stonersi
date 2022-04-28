@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StyledWrapper from './StyledWrapper';
+import { BsArrowDownCircle } from 'react-icons/bs';
 
 interface IProps {
     q: string
@@ -16,7 +17,7 @@ const QuestionAndAnswer: React.FC<IProps> = ({q, a}) => {
 
     return(
         <StyledWrapper showAnswer={showAnswer}>
-            <p className="question" onClick={handleClick}>{q}</p>
+            <p className="question" onClick={handleClick}>{q} <BsArrowDownCircle /></p>
             <p className="answer">{a}</p>
         </StyledWrapper>
     );
