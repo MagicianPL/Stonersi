@@ -7,6 +7,9 @@ const StyledWrapper = styled.div`
     background: #3CB043;
     border-radius: 3px;
     margin-top: 30px;
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: appearing 1.5s forwards;
 
     @media (max-width: 360px) {
         * {
@@ -78,6 +81,14 @@ const StyledWrapper = styled.div`
         100% {
             opacity: 1;
         }
+    }
+
+    @keyframes appearing {
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
     }
 `;
 
