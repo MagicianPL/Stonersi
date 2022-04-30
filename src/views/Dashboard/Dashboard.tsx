@@ -32,6 +32,7 @@ const Dashboard = () => {
             </nav>
             <div className="content">
                 <p className="greeting"><span>Co dziś działamy, {user?.login}?</span></p>
+                {renderViewFromMenu === null && <p className="info">Wybierz coś z menu po lewej, Ty tu rządzisz ;)</p>}
                 {renderViewFromMenu === "posts" && <PostsView posts={allPosts} />}
             </div>
         </StyledWrapper>

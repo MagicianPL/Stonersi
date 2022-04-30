@@ -77,10 +77,11 @@ const StyledWrapper = styled.div`
         }
     }
 
-    @keyframes appearing {
-        100% {
-            opacity: 1;
-        }
+    .info {
+        text-align: left;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 40px 0 0 20px;
     }
 
     @keyframes appearing {
