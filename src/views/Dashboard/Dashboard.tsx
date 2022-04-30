@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import StyledWrapper from './StyledWrapper';
-import PostsView from './SubPages/Posts/PostsView';
+import PostsView from './SubPages/PostsView/PostsView';
 
 const Dashboard = () => {
     const { user } = useSelector((state: any) => state.userReducer);
