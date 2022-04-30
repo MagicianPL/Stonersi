@@ -13,6 +13,12 @@ const StyledWrapper = styled.div`
         gap: 25px;
         padding: 20px 0;
     }
+
+    h1 {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 `;
 
 export default StyledWrapper;
