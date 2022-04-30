@@ -15,7 +15,7 @@ const MainNav = () => {
                     (user?.function === "admin" || user?.function === "mod") &&
                     <>
                     <li className="break"></li>
-                    <Link to="/dashboard"><li className="dashboard">Panel</li></Link>
+                    <Link to="/dashboard"><li className="dashboard">- Panel -</li></Link>
                     </>
                 }
             </StyledWrapper>

@@ -56,6 +56,8 @@ const StyledWrapper = styled.ul`
         .dashboard {
             padding-top: 15px;
             color: red;
+            opacity: 0.8;
+            font-size: 18px;
 
             &::before {
                 display: none;
