@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import CannabisImage from '../../images/cannabis.png';
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<{user: any}>`
     width: 100%;
-    height: 270px;
+    height: ${({user}) => user?.function === "admin" || user?.function === "mod" ? '285px;' : '270px;'}
     padding: 15px 8px;
     position: relative;
     display: flex;
@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
     justify-content: center;
 
     @media (max-width: 500px) {
-        height: 226px;
+        height: ${({user}) => user?.function === "admin" || user?.function === "mod" ? '240px;' : '226px;'}
     }
 
     &::before {

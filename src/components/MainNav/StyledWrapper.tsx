@@ -4,6 +4,7 @@ import Marijuana from '../../images/marijuana.png';
 const StyledWrapper = styled.ul`
         list-style: none;
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         max-width: 1200px;
         margin: auto auto 0 auto;
@@ -50,6 +51,20 @@ const StyledWrapper = styled.ul`
             &:hover::before {
                 opacity: 0.6;
             }
+        }
+
+        .dashboard {
+            padding-top: 15px;
+            color: red;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .break {
+            flex-basis: 100%;
+            height: 0;
         }
     `;
 
