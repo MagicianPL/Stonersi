@@ -8,6 +8,10 @@ const StyledWrapper = styled.div`
     background: #FFCCFF;
     margin: 0 auto 30px auto;
 
+    @media (max-width: 700px) {
+        max-width: 98%;
+    }
+
     p {
         margin-bottom: 25px;
     }
@@ -21,6 +25,11 @@ const StyledWrapper = styled.div`
         display: flex;
         gap: 30px;
         padding-left: 10px;
+
+        @media (max-width: 390px) {
+            flex-direction: column;
+            gap: 10px;
+        }
     }
 `;
 

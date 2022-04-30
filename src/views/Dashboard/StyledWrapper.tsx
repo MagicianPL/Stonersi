@@ -8,6 +8,12 @@ const StyledWrapper = styled.div`
     border-radius: 3px;
     margin-top: 30px;
 
+    @media (max-width: 360px) {
+        * {
+            font-size: 12px;
+        }
+    }
+
     ul {
         padding: 40px 25px;
         list-style: none;
@@ -15,6 +21,14 @@ const StyledWrapper = styled.div`
         height: 100%;
         font-weight: bold;
         border-radius: 3px;
+
+        @media (max-width: 500px) {
+            padding: 40px 15px;
+        }
+
+        @media (max-width: 390px) {
+            padding: 40px 3px 0 3px;
+        }
 
         li {
             margin-bottom: 20px;
@@ -24,6 +38,14 @@ const StyledWrapper = styled.div`
 
             &:hover {
                 opacity: 0.7;
+            }
+
+            @media (max-width: 500px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 380px) {
+                font-size: 14px;
             }
         }
     }
@@ -40,6 +62,10 @@ const StyledWrapper = styled.div`
         font-style: italic;
         font-size: 18px;
         border-radius: 3px;
+
+        @media (max-width: 380px) {
+            font-size: 14px;
+        }
 
         span {
             opacity: 0;
