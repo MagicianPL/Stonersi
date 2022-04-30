@@ -6,6 +6,18 @@ const StyledWrapper = styled.div`
     grid-template-rows: 60px auto;
     column-gap: 30px;
     margin-bottom: 60px;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: lightgray;
+        opacity: 0.4;
+    }
 
     @media (max-width: 841px) {
         display: block;
