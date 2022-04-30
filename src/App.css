@@ -7,6 +7,7 @@
 body {
   font-family: "Lato", sans-serif;
   overflow-x: hidden;
+  min-height: 102vh;
 }
 
 @font-face {
