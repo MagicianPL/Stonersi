@@ -15,6 +15,10 @@ const StyledHeader = styled.header<{user: any}>`
         height: ${({user}) => user?.function === "admin" || user?.function === "mod" ? '240px;' : '226px;'}
     }
 
+    @media (min-width: 501px) and (max-width: 1070px) {
+        height: ${({user}) => user?.function === "admin" || user?.function === "mod" ? '303px;' : '270px;'}
+    }
+
     &::before {
         content: "";
         position: absolute;
