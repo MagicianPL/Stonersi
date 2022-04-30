@@ -14,11 +14,17 @@ const StyledWrapper = styled.div`
         background: #59e361;
         height: 100%;
         font-weight: bold;
+        border-radius: 3px;
 
         li {
             margin-bottom: 20px;
             font-size: 20px;
             cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                opacity: 0.7;
+            }
         }
     }
 
@@ -33,6 +39,19 @@ const StyledWrapper = styled.div`
         font-weight: bold;
         font-style: italic;
         font-size: 18px;
+        border-radius: 3px;
+
+        span {
+            opacity: 0;
+            animation: appearing 1s forwards;
+            animation-delay: 1.5s;
+        }
+    }
+
+    @keyframes appearing {
+        100% {
+            opacity: 1;
+        }
     }
 `;
 

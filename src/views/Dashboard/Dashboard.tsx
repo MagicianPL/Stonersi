@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import StyledWrapper from './StyledWrapper';
+import PostsView from './SubPages/Posts/PostsView';
 
 const Dashboard = () => {
     const { user } = useSelector((state: any) => state.userReducer);
@@ -8,13 +9,14 @@ const Dashboard = () => {
         <StyledWrapper>
             <nav>
                 <ul>
-                    <li>Option 1</li>
+                    <li>Posty</li>
                     <li>Option 2</li>
                     <li>Option 3</li>
                 </ul>
             </nav>
             <div className="content">
-                <p className="greeting">Co dziś działamy, {user?.login}?</p>
+                <p className="greeting"><span>Co dziś działamy, {user?.login}?</span></p>
+                <PostsView />
             </div>
         </StyledWrapper>
     );
