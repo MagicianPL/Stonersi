@@ -26,8 +26,8 @@ const Dashboard = () => {
             <nav>
                 <ul>
                     <li onClick={() => renderComponent("posts")}>Posty</li>
-                    <li>Option 2</li>
-                    <li>Option 3</li>
+                    <li>XXX</li>
+                    <li>XXX</li>
                 </ul>
             </nav>
             <div className="content">
