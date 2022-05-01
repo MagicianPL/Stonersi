@@ -32,9 +32,13 @@ const StyledWrapper = styled.div`
         }
     }
 
-    .accepted {
+    .accepted, .rejected {
         color: green;
         font-weight: bold;
+    }
+
+    .rejected {
+        color: red;
     }
 `;
 
