@@ -19,6 +19,7 @@ const Post: React.FC<IProps> = ({ content, createdAt, createdBy, id }) => {
 
     const { user } = useSelector((state: any) => state.userReducer);
 
+    //For displaying information on Post cmp itself - when user clicks accept btn
     const [acceptedPost, setAcceptedPost] = useState(false);
 
     const acceptPost = async () => {
