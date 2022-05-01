@@ -30,7 +30,7 @@ const PostsView: React.FC<IProps> = ({ posts }) => {
                 <>
                 <h1> - Oczekujące na akceptację ({pendingPosts.length}) - </h1>
                 {pendingPosts.map((post: any) =>
-                <Post content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
+                <Post key={post._id} id={post._id} content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
                 )}
                 </>
             }
@@ -38,7 +38,7 @@ const PostsView: React.FC<IProps> = ({ posts }) => {
                 <>
                 <h1> - Niezaakceptowane ({rejectedPosts.length}) - </h1>
                 {rejectedPosts.map((post: any) =>
-                <Post content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
+                <Post key={post._id} id={post._id} content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
                 )}
                 </>
             }

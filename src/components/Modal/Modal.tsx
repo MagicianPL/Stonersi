@@ -13,7 +13,7 @@ const StyledModalWrapper = styled.div<{error?: string}>`
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    z-index: 11;
 
     & > div {
         position: relative;
@@ -33,7 +33,7 @@ const StyledModalWrapper = styled.div<{error?: string}>`
         flex-direction: column;
 
         * {
-            z-index: 2;
+            z-index: 3;
         }
 
         &::after {

@@ -6,10 +6,9 @@ const StyledWrapper = styled.div`
     display: flex;
     background: #3CB043;
     border-radius: 3px;
-    margin-top: 30px;
+    margin-top: 5px;
     opacity: 0;
-    transform: translateY(-25px);
-    animation: appearing 1.5s forwards;
+    animation: appearingDashboard 1s forwards;
 
     @media (max-width: 360px) {
         * {
@@ -89,8 +88,13 @@ const StyledWrapper = styled.div`
             transform: translateY(0);
             opacity: 1;
         }
-
     }
+
+    @keyframes appearingDashboard {
+        100% {
+            margin-top: 30px;
+            opacity: 1;
+        }
 `;
 
 export default StyledWrapper;

@@ -31,6 +31,11 @@ const StyledWrapper = styled.div`
             gap: 10px;
         }
     }
+
+    .accepted {
+        color: green;
+        font-weight: bold;
+    }
 `;
 
 export default StyledWrapper;
