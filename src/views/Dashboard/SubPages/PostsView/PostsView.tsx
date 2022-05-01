@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StyledWrapper from './StyledWrapper';
 import Post from '../../../../components/Dashboard/PostsView/Post/Post';
+import RejectedPost from '../../../../components/Dashboard/PostsView/RejectedPost/RejectedPost';
 
 interface IProps {
     posts: any
@@ -38,7 +39,7 @@ const PostsView: React.FC<IProps> = ({ posts }) => {
                 <>
                 <h1> - Niezaakceptowane ({rejectedPosts.length}) - </h1>
                 {rejectedPosts.map((post: any) =>
-                <Post key={post._id} id={post._id} content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
+                <RejectedPost key={post._id} id={post._id} content={post.content} createdAt={post.createdAt} createdBy={post.createdBy} />
                 )}
                 </>
             }
