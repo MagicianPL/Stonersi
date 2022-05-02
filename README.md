@@ -2,6 +2,14 @@
 
 Welcome to my MERN Stack application which allows you to write any funny post and share your weird ideas and thoughts of any kind.
 
+## Main Technologies:
+
+- React (Styled Components, React Router, hooks)
+- Redux
+- Node.js (express)
+- MongoDB (mongoose)
+- Typescript
+
 The idea for this app was from my friend and I thought that this will be excellent opportunity for practicing my skills.
 
 ## As a user you can:
