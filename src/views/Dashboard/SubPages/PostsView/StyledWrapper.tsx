@@ -33,6 +33,20 @@ const StyledWrapper = styled.div`
             font-size: 14px;
         }
     }
+
+    .refresh {
+        font-size: 14px;
+        cursor: pointer;
+        color: blue;
+        text-align: center;
+        transition: all 0.3s;
+        width: max-content;
+        margin: 0 auto 25px auto;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
 `;
 
 export default StyledWrapper;
