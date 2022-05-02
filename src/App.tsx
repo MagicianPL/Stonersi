@@ -20,7 +20,7 @@ import Dashboard from './views/Dashboard/Dashboard';
 import FaqPage from './views/FAQ/FaqPage';
 import ScrollToTop from './components/ScrollToTop';
 import BackgroundMusic from './components/BackGroundMusic/BackgroundMusic';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';;
 
 
 
