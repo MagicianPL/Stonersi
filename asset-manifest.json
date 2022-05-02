@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/stonersi/static/css/main.072edf06.css",
-    "main.js": "/stonersi/static/js/main.7d5aa37c.js",
-    "static/media/cannabis.png": "/stonersi/static/media/cannabis.cc0a1d0445c4be2d0724.png",
-    "static/media/SmokingTequila.ttf": "/stonersi/static/media/SmokingTequila.2448c15c9960a770c6a2.ttf",
-    "index.html": "/stonersi/index.html",
-    "main.072edf06.css.map": "/stonersi/static/css/main.072edf06.css.map",
-    "main.7d5aa37c.js.map": "/stonersi/static/js/main.7d5aa37c.js.map"
+    "main.css": "/Stonersi/static/css/main.51d2c4ae.css",
+    "main.js": "/Stonersi/static/js/main.aaf43f6a.js",
+    "static/media/cannabis.png": "/Stonersi/static/media/cannabis.cc0a1d0445c4be2d0724.png",
+    "static/media/SmokingTequila.ttf": "/Stonersi/static/media/SmokingTequila.2448c15c9960a770c6a2.ttf",
+    "index.html": "/Stonersi/index.html",
+    "main.51d2c4ae.css.map": "/Stonersi/static/css/main.51d2c4ae.css.map",
+    "main.aaf43f6a.js.map": "/Stonersi/static/js/main.aaf43f6a.js.map"
   },
   "entrypoints": [
-    "static/css/main.072edf06.css",
-    "static/js/main.7d5aa37c.js"
+    "static/css/main.51d2c4ae.css",
+    "static/js/main.aaf43f6a.js"
   ]
 }
