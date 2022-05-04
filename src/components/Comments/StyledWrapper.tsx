@@ -18,6 +18,14 @@ const StyledWrapper = styled.div`
         display: flex;
         flex-direction: column;
         gap: 12px;
+
+        span {
+            color: red;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            max-width: fit-content;
+        }
     }
 `;
 
