@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Stonersi/static/css/main.51d2c4ae.css",
-    "main.js": "/Stonersi/static/js/main.3a8d9709.js",
+    "main.js": "/Stonersi/static/js/main.5f8fa4d8.js",
     "static/media/cannabis.png": "/Stonersi/static/media/cannabis.cc0a1d0445c4be2d0724.png",
     "static/media/SmokingTequila.ttf": "/Stonersi/static/media/SmokingTequila.2448c15c9960a770c6a2.ttf",
     "index.html": "/Stonersi/index.html",
     "main.51d2c4ae.css.map": "/Stonersi/static/css/main.51d2c4ae.css.map",
-    "main.3a8d9709.js.map": "/Stonersi/static/js/main.3a8d9709.js.map"
+    "main.5f8fa4d8.js.map": "/Stonersi/static/js/main.5f8fa4d8.js.map"
   },
   "entrypoints": [
     "static/css/main.51d2c4ae.css",
-    "static/js/main.3a8d9709.js"
+    "static/js/main.5f8fa4d8.js"
   ]
 }
