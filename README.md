@@ -38,6 +38,7 @@ The idea for this app was from my friend and I thought that this will be excelle
   - You can accept specific post or you can reject it
 - Visit page on dashboard where you can see all of these rejected posts (by moderator or admin)
   - You can accept specific post or delete it completly
+- You have also possibility to delete any comment
 
 ## As a moderator you can:
 
