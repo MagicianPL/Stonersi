@@ -45,14 +45,14 @@ const Comment: React.FC<IProps> = ({_id, content, author }) => {
     return(
         <>
         <div className="comment" key={_id}>
-            {loggedInUser.function === "admin" &&
+            {loggedInUser?.function === "admin" &&
             <span title="usuń" onClick={deleteComment}>X</span>
             }
             <p>{content}</p>
             <p>~ {author.login}</p>
             <hr />
         </div>
-        {loggedInUser.function === "admin" &&
+        {loggedInUser?.function === "admin" &&
         <Modal showModal={showModal} content={modalContent} error={modalError} modalFromPost />
         }
         </>
